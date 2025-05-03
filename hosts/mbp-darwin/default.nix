@@ -3,6 +3,8 @@
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
+
+    ./../../core/darwin
   ];
 
   # List packages installed in system profile. To search by name, run:
@@ -10,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     vim
     nano
-    
+
     nil
     nixfmt-rfc-style
   ];
@@ -19,8 +21,6 @@
   nix.settings.experimental-features = "nix-command flakes";
 
   system.stateVersion = 6;
-
-  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.defaults.dock.autohide = true;
   system.defaults.dock.mru-spaces = false;
@@ -46,6 +46,7 @@
         morlana
         yazi
       ];
+
     };
   };
 
