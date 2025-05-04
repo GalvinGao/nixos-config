@@ -66,9 +66,6 @@
     };
 
     initContent = ''
-      # Homebrew
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-
       # Path additions
       export PATH="/opt/homebrew/Cellar/postgresql@16/16.6/bin:$HOME/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/Users/galvin/go/bin:/Users/galvin/Static/PATH:/Users/galvin/.cargo/bin:/Users/galvin/.local/bin/"
       export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
