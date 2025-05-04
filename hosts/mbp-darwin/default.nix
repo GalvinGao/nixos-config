@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }:
 
@@ -12,11 +11,7 @@
     ./../../core/darwin
   ];
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "consul"
-    ];
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -38,6 +33,7 @@
     maestro
     openfga
     supabase-cli
+    _1password-cli
 
     # Development
     openjdk
@@ -110,6 +106,22 @@
       home.stateVersion = "25.05";
 
       programs.home-manager.enable = true;
+      programs.fzf = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      programs.zsh = {
+        enable = true;
+        syntaxHighlighting = {
+          enable = true;
+        };
+      };
+      programs.bat = {
+        enable = true;
+        extraPackages = with pkgs.bat-extras; [
+          batgrep
+        ];
+      };
 
       home.packages = with pkgs; [
         morlana
