@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -6,6 +11,12 @@
 
     ./../../core/darwin
   ];
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "consul"
+    ];
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -15,6 +26,62 @@
 
     nil
     nixfmt-rfc-style
+
+    autojump
+    starship
+    nixfmt
+
+    xxHash
+    grpc
+    stripe-cli
+    consul
+    maestro
+    openfga
+    supabase-cli
+
+    # Development
+    openjdk
+    apktool
+    argocd
+    aria2
+    awscli
+    dive
+    doctl
+    duckdb
+    erlang
+    exiftool
+    fastfetch
+    eza
+    fastlane
+    fnm
+    git
+    git-lfs
+    go
+    grafana
+    grpcurl
+    hashcat
+    htop
+    imagemagick
+    iperf
+    iperf3
+    jq
+    k6
+    jmeter
+    kubectl
+    mtr
+    ouch
+    pandoc
+    pngquant
+    postgresql
+    rclone
+    rabbitmq-server
+    redis
+    speedtest-cli
+    tmux
+    tree
+    wget
+    yq
+    yt-dlp
   ];
 
   # Necessary for using flakes on this system.
@@ -22,9 +89,11 @@
 
   system.stateVersion = 6;
 
-  system.defaults.dock.autohide = true;
-  system.defaults.dock.mru-spaces = false;
-  system.defaults.finder.AppleShowAllExtensions = true;
+  system.defaults = {
+    dock.autohide = true;
+    dock.mru-spaces = false;
+    finder.AppleShowAllExtensions = true;
+  };
 
   nixpkgs.overlays = [
     inputs.morlana.overlays.default
@@ -34,7 +103,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-    
+
     users.galvin = {
       home.username = "galvin";
       home.homeDirectory = "/Users/galvin";
@@ -46,7 +115,6 @@
         morlana
         yazi
       ];
-
     };
   };
 
