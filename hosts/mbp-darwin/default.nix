@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     vim
     nano
+    just
 
     nil
     nixfmt-rfc-style
