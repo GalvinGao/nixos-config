@@ -41,11 +41,10 @@
       ANDROID_HOME = "/Users/$USER/Library/Android/sdk";
       VSCODE = "code-insiders";
       HISTFILE = "~/.zsh_history";
-      HISTSIZE = "999999999";
-      SAVEHIST = "999999999";
+      HISTSIZE = "100000000";
+      SAVEHIST = "100000000";
       BUN_INSTALL = "$HOME/.bun";
       PKG_CONFIG_PATH = "/opt/homebrew/Cellar/vips/8.16.0/lib/pkgconfig:$PKG_CONFIG_PATH";
-      DOTNET_ROOT = "/opt/homebrew/opt/dotnet@8/libexec";
     };
 
     # Aliases
@@ -66,7 +65,7 @@
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
     };
 
-    initExtra = ''
+    initContent = ''
       # Homebrew
       eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -117,9 +116,6 @@
       # fnm
       eval "$(fnm env --use-on-cd)"
 
-      # Atuin shell history
-      #eval "$(atuin init zsh)"
-
       # Completions
       autoload -U +X bashcompinit && bashcompinit
       complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -128,7 +124,6 @@
       [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
       [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
       [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
-      # [ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
 
       # Welcome message
       echo "Welcome :D"

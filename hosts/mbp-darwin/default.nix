@@ -18,67 +18,8 @@
   environment.systemPackages = with pkgs; [
     vim
     nano
-    just
 
-    nil
-    nixfmt-rfc-style
-
-    autojump
-    starship
-    nixfmt
-
-    xxHash
-    grpc
-    stripe-cli
-    consul
-    maestro
-    openfga
-    supabase-cli
-    _1password-cli
-
-    # Development
-    openjdk
-    apktool
-    argocd
-    aria2
-    awscli
-    dive
-    doctl
-    duckdb
-    erlang
-    exiftool
-    fastfetch
-    eza
-    fastlane
-    fnm
-    git
-    git-lfs
-    go
-    grafana
-    grpcurl
-    hashcat
-    htop
-    imagemagick
-    iperf
-    iperf3
-    jq
-    k6
-    jmeter
-    kubectl
-    mtr
-    ouch
-    pandoc
-    pngquant
-    postgresql
-    rclone
-    rabbitmq-server
-    redis
-    speedtest-cli
-    tmux
-    tree
-    wget
-    yq
-    yt-dlp
+    terminal-notifier
   ];
 
   # Necessary for using flakes on this system.
@@ -90,6 +31,15 @@
     dock.autohide = true;
     dock.mru-spaces = false;
     finder.AppleShowAllExtensions = true;
+    finder.AppleShowAllFiles = true;
+    finder._FXSortFoldersFirst = false;
+    finder.FXEnableExtensionChangeWarning = false;
+    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
+    CustomSystemPreferences = {
+      "com.apple.Music" = {
+        userWantsPlaybackNotifications = false;
+      };
+    };
   };
 
   nixpkgs.overlays = [
@@ -127,6 +77,66 @@
       home.packages = with pkgs; [
         morlana
         yazi
+
+        just
+
+        nil
+        nixfmt-rfc-style
+
+        autojump
+        starship
+
+        xxHash
+        grpc
+        stripe-cli
+        consul
+        maestro
+        openfga
+        supabase-cli
+        _1password-cli
+
+        # Development
+        openjdk
+        apktool
+        argocd
+        aria2
+        awscli
+        dive
+        doctl
+        duckdb
+        erlang
+        exiftool
+        fastfetch
+        eza
+        fastlane
+        fnm
+        git
+        git-lfs
+        go
+        grafana
+        grpcurl
+        hashcat
+        htop
+        imagemagick
+        iperf
+        iperf3
+        jq
+        k6
+        jmeter
+        kubectl
+        mtr
+        ouch
+        pandoc
+        pngquant
+        rclone
+        rabbitmq-server
+        redis
+        speedtest-cli
+        tmux
+        tree
+        wget
+        yq
+        yt-dlp
       ];
     };
   };
@@ -135,4 +145,10 @@
     name = "galvin";
     home = "/Users/galvin";
   };
+
+  nix.gc.automatic = true;
+  nix.gc.interval.Hour = 3;
+  nix.gc.options = "--delete-older-than 15d";
+  nix.optimise.automatic = true;
+  nix.optimise.interval.Hour = 4;
 }

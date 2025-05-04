@@ -12,6 +12,9 @@
     brews = [
       # Network & Infrastructure
       "cloudflared"
+
+      "redis"
+      "postgresql@16"
     ];
 
     casks = [
