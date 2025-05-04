@@ -101,6 +101,12 @@
     extraSpecialArgs = { inherit inputs; };
 
     users.galvin = {
+      imports = [
+        ./../../home/terminal/zsh.nix
+        ./../../home/terminal/starship.nix
+        ./../../home/terminal/atuin.nix
+      ];
+
       home.username = "galvin";
       home.homeDirectory = "/Users/galvin";
       home.stateVersion = "25.05";
@@ -109,12 +115,6 @@
       programs.fzf = {
         enable = true;
         enableZshIntegration = true;
-      };
-      programs.zsh = {
-        enable = true;
-        syntaxHighlighting = {
-          enable = true;
-        };
       };
       programs.bat = {
         enable = true;
