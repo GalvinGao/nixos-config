@@ -52,6 +52,17 @@
       git_branch = {
         symbol = " ";
       };
+      git_status = {
+        conflicted = "=";
+        ahead = "⇡\${count}";
+        behind = "⇣\${count}";
+        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
+        untracked = "?\${count}";
+        modified = "!\${count}";
+        staged = "+\${count}";
+        renamed = "»\${count}";
+        deleted = "\${count}";
+      };
       golang = {
         symbol = " ";
       };
@@ -60,6 +71,9 @@
       };
       gradle = {
         symbol = " ";
+      };
+      gcloud = {
+        disabled = true;
       };
       haskell = {
         symbol = " ";
@@ -84,7 +98,7 @@
       };
       kubernetes = {
         symbol = "󱃾 ";
-        disabled = false;
+        disabled = true;
       };
       lua = {
         symbol = " ";

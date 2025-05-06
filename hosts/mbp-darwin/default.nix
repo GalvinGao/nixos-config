@@ -7,7 +7,6 @@
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
-
     ./../../core/darwin
   ];
 
@@ -47,6 +46,7 @@
   ];
 
   home-manager = {
+
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
@@ -56,6 +56,7 @@
         ./../../home/terminal/zsh.nix
         ./../../home/terminal/starship.nix
         ./../../home/terminal/atuin.nix
+        ./../../home/terminal/1password.nix
       ];
 
       home.username = "galvin";
@@ -93,14 +94,12 @@
         maestro
         openfga
         supabase-cli
-        _1password-cli
 
         # Development
         openjdk
         apktool
         argocd
         aria2
-        awscli
         dive
         doctl
         duckdb

@@ -27,9 +27,7 @@
     syntaxHighlighting.enable = true;
 
     # Enable autosuggestions
-    autosuggestion = {
-      enable = true;
-    };
+    autosuggestions.enable = true;
 
     # Environment variables
     sessionVariables = {
@@ -60,7 +58,7 @@
       p = "pnpm";
       pua = "pnpm dlx shadcn@latest add";
       ls = "eza";
-      ll = "eza --long --header --group --time-style long-iso";
+      ll = "eza --long --header --group --time-style long-iso -la";
       nr = "npm run";
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
     };
@@ -68,7 +66,6 @@
     initContent = ''
       # Path additions
       export PATH="/opt/homebrew/Cellar/postgresql@16/16.6/bin:$HOME/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/Users/galvin/go/bin:/Users/galvin/Static/PATH:/Users/galvin/.cargo/bin:/Users/galvin/.local/bin/"
-      export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
       export PATH="$BUN_INSTALL/bin:$PATH"
       export PATH="/usr/local/clamav/bin:/usr/local/clamav/sbin:$PATH"
 
@@ -111,7 +108,7 @@
       }
 
       # fnm
-      eval "$(fnm env --use-on-cd)"
+      eval "$(fnm env --use-on-cd --shell zsh --version-file-strategy=recursive --corepack-enabled)"
 
       # Completions
       autoload -U +X bashcompinit && bashcompinit
@@ -121,9 +118,6 @@
       [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
       [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
       [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
-
-      # Welcome message
-      echo "Welcome :D"
     '';
   };
 }

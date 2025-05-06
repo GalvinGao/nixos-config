@@ -18,13 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    _1password-shell-plugins = {
-      url = "github:1Password/shell-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
-    flake-utils.url = "github:numtide/flake-utils";
+    _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };
 
   outputs =

@@ -15,6 +15,8 @@
 
       "redis"
       "postgresql@16"
+
+      "baidupcs-go"
     ];
 
     casks = [
