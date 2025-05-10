@@ -15,6 +15,7 @@
 
       "redis"
       "postgresql@16"
+      "cocoapods"
 
       "baidupcs-go"
     ];
