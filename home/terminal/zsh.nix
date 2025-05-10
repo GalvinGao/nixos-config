@@ -27,7 +27,7 @@
     syntaxHighlighting.enable = true;
 
     # Enable autosuggestions
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
 
     # Environment variables
     sessionVariables = {
