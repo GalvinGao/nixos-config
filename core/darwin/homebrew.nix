@@ -18,6 +18,7 @@
       "cocoapods"
 
       "baidupcs-go"
+      "pkgconfig"
     ];
 
     casks = [
