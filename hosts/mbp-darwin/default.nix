@@ -78,8 +78,8 @@
       home.packages = with pkgs; [
         morlana
         yazi
-
         just
+        pixman
 
         nil
         nixfmt-rfc-style
