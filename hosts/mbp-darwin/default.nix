@@ -19,6 +19,7 @@
     nano
 
     terminal-notifier
+    nodejs_23
   ];
 
   # Necessary for using flakes on this system.
