@@ -9,6 +9,10 @@
       upgrade = false;
     };
 
+    taps = [
+      "amplitude/ampli"
+    ];
+
     brews = [
       # Network & Infrastructure
       "cloudflared"
@@ -16,6 +20,7 @@
       "redis"
       "postgresql@16"
       "cocoapods"
+      "ampli"
 
       "baidupcs-go"
       "pkgconfig"
