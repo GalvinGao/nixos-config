@@ -17,7 +17,7 @@
     brews = [
       # Network & Infrastructure
       "cloudflared"
-      "consul"
+      "hashicorp/tap/consul"
 
       "redis"
       "postgresql@16"
