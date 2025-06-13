@@ -11,14 +11,17 @@
 
     taps = [
       "amplitude/ampli"
+      "hashicorp/tap"
     ];
 
     brews = [
       # Network & Infrastructure
       "cloudflared"
+      "consul"
 
       "redis"
       "postgresql@16"
+      "postgresql@17"
       "cocoapods"
       "ampli"
 

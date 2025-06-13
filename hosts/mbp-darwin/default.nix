@@ -91,7 +91,6 @@
         xxHash
         grpc
         stripe-cli
-        consul
         maestro
         openfga
         supabase-cli
