@@ -12,12 +12,14 @@
     taps = [
       "amplitude/ampli"
       "hashicorp/tap"
+      "siderolabs/tap"
     ];
 
     brews = [
       # Network & Infrastructure
       "cloudflared"
       "hashicorp/tap/consul"
+      "siderolabs/tap/talosctl"
 
       "redis"
       "postgresql@16"
@@ -27,6 +29,7 @@
 
       "baidupcs-go"
       "pkgconfig"
+      "httpie"
     ];
 
     casks = [
