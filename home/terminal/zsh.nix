@@ -61,6 +61,7 @@
       ll = "eza --long --header --group --time-style long-iso -la";
       nr = "npm run";
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
+      ecr_dive = "sh /Users/galvin/Static/ecr_inspect.sh";
     };
 
     initContent = ''

@@ -57,7 +57,6 @@
         ./../../home/terminal/zsh.nix
         ./../../home/terminal/starship.nix
         ./../../home/terminal/atuin.nix
-        ./../../home/terminal/1password.nix
       ];
 
       home.username = "galvin";

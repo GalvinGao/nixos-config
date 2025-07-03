@@ -20,6 +20,8 @@
       "cloudflared"
       "hashicorp/tap/consul"
       "siderolabs/tap/talosctl"
+      "awscli"
+      "s5cmd"
 
       "redis"
       "postgresql@16"
@@ -30,6 +32,7 @@
       "baidupcs-go"
       "pkgconfig"
       "httpie"
+      "fuse"
     ];
 
     casks = [
