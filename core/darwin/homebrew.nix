@@ -32,7 +32,6 @@
       "baidupcs-go"
       "pkgconfig"
       "httpie"
-      "fuse"
     ];
 
     casks = [
@@ -100,8 +99,10 @@
       "iina" # Modern media player
       "inkscape" # Vector graphics editor
       "losslesscut" # Media cutter & joiner
+      "obs" # Open Broadcaster Software
       "sigil" # EPUB ebook editor
       "sonobus" # Audio streaming
+      "vlc" # Cross-platform multimedia player
       "xnconvert" # Batch image processor
 
       # QuickLook Extensions
