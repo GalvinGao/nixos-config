@@ -6,7 +6,7 @@
     onActivation = {
       autoUpdate = false;
       cleanup = "uninstall";
-      upgrade = false;
+      upgrade = true;
     };
 
     taps = [
@@ -98,8 +98,8 @@
       "moonlight" # Game streaming client
       "iina" # Modern media player
       "inkscape" # Vector graphics editor
-      "losslesscut" # Media cutter & joiner
       "obs" # Open Broadcaster Software
+      "qgis" # Geographic Information System
       "sigil" # EPUB ebook editor
       "sonobus" # Audio streaming
       "vlc" # Cross-platform multimedia player
