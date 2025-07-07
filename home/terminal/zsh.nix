@@ -57,6 +57,7 @@
       n = "npm";
       p = "pnpm";
       pua = "pnpm dlx shadcn@latest add";
+      claude = "/Users/galvin/.claude/local/claude";
       ls = "eza";
       ll = "eza --long --header --group --time-style long-iso -la";
       nr = "npm run";
