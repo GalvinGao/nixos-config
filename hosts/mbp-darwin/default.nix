@@ -98,6 +98,7 @@
         apktool
         argocd
         aria2
+        cmake
         dive
         doctl
         duckdb
