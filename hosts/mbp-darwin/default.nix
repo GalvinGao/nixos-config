@@ -109,6 +109,7 @@
         fnm
         git
         git-lfs
+        gh # GitHub CLI
         go
         grafana
         grpcurl

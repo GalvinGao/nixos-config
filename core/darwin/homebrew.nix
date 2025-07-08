@@ -22,6 +22,8 @@
       "siderolabs/tap/talosctl"
       "awscli"
       "s5cmd"
+      "ffmpeg"
+      "axel"
 
       "redis"
       "postgresql@16"
