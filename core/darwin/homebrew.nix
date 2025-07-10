@@ -24,6 +24,7 @@
       "s5cmd"
       "ffmpeg"
       "axel"
+      "qshell"
 
       "redis"
       "postgresql@16"
