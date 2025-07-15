@@ -27,6 +27,7 @@
       "qshell"
 
       "redis"
+      "mysql"
       "postgresql@16"
       "postgresql@17"
       "cocoapods"

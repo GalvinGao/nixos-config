@@ -19,13 +19,14 @@
     nano
 
     terminal-notifier
-    nodejs_23
   ];
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
   system.stateVersion = 6;
+
+  system.primaryUser = "galvin";
 
   system.defaults = {
     dock.autohide = true;

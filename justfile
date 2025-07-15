@@ -1,10 +1,10 @@
 # Switch to new configuration and create symlinks
 switch:
-    morlana switch --flake .
+    sudo morlana switch --flake .
 
 # Build and activate the configuration without switching
 test:
-    morlana build --flake .
+    sudo morlana build --flake .
 
 # Update all flake inputs
 update:
