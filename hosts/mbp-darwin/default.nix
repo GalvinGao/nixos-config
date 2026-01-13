@@ -83,7 +83,7 @@
         p7zip # 7-Zip file archiver
 
         nil
-        nixfmt-rfc-style
+        nixfmt
 
         autojump
         starship

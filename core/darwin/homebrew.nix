@@ -13,6 +13,7 @@
       "amplitude/ampli"
       "hashicorp/tap"
       "siderolabs/tap"
+      "tw93/tap" # for mole
     ];
 
     brews = [
@@ -47,7 +48,7 @@
       "kubectl-argo-rollouts"
       "maestro"
       "miniserve"
-      "mole"
+      "tw93/tap/mole"
       "mongosh"
       "nx"
       "opencode"
@@ -56,6 +57,13 @@
       "python@3.13"
       "telnet"
       "watch"
+
+      # Dependencies that can't be auto-removed
+      "act"
+      "doge"
+      "node@18" # required by ampli
+      "postgresql@14"
+      "pv"
     ];
 
     casks = [
@@ -65,7 +73,6 @@
       "copilot-for-xcode" # GitHub Copilot for Xcode
       "devcleaner" # Xcode cache cleaner
       "ghostty" # Modern GPU-accelerated terminal
-      "google-cloud-sdk" # Google Cloud Platform SDK
       "hoppscotch" # API development ecosystem
       "lens" # Kubernetes management IDE
       "orbstack" # Fast Docker & Linux on macOS
@@ -74,7 +81,7 @@
       "swiftformat-for-xcode" # Swift code formatter
       "visual-studio-code@insiders" # VS Code Insiders build
       "vscodium" # Community-driven VS Code
-      "xcodes" # Xcode version manager
+      "xcodes-app" # Xcode version manager
 
       # Web Browsers & Development
       # Web browsers and development tools
@@ -113,17 +120,14 @@
       "transmission" # Torrent client
       "wechat" # Messaging and social
       "whatsapp" # Messaging platform
-      "wireshark" # Network protocol analyzer
+      "wireshark-app" # Network protocol analyzer
 
       # Media & Design Tools
       # Creative tools for media management and design
-      "calibre" # E-book manager
       "figma" # Design and prototyping
       "moonlight" # Game streaming client
       "iina" # Modern media player
-      "inkscape" # Vector graphics editor
       "obs" # Open Broadcaster Software
-      "qgis" # Geographic Information System
       "sigil" # EPUB ebook editor
       "sonobus" # Audio streaming
       "vlc" # Cross-platform multimedia player
@@ -156,7 +160,6 @@
       "zulu@17" # Certified OpenJDK distribution
 
       "gcloud-cli"
-      "logoer"
       "mongodb-compass"
     ];
   };
