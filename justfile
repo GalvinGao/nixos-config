@@ -18,4 +18,8 @@ clean:
 # Show current system version and last modified date
 version:
     darwin-rebuild --version
-    stat -f "%Sm" /run/current-system 
+    stat -f "%Sm" /run/current-system
+
+# Print missing Homebrew packages for manual addition
+print-brew:
+    ./print-missing-brew.sh

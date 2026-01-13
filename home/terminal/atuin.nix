@@ -6,7 +6,7 @@
     enableZshIntegration = true;
     flags = [ "--disable-up-arrow" ];
     daemon = {
-      enable = true;
+      enable = false;
     };
   };
 }

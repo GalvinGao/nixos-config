@@ -30,7 +30,7 @@
 
   system.defaults = {
     dock.autohide = true;
-    dock.mru-spaces = false;
+    dock.mru-spaces = true;
     finder.AppleShowAllExtensions = true;
     finder.AppleShowAllFiles = true;
     finder._FXSortFoldersFirst = false;

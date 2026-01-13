@@ -30,12 +30,33 @@
       "mysql"
       "postgresql@16"
       "postgresql@17"
+      "nats-server"
+      "nats"
       "cocoapods"
       "ampli"
 
       "baidupcs-go"
       "pkgconfig"
       "httpie"
+
+      "arp-scan"
+      "asciinema"
+      "ast-grep"
+      "bundletool"
+      "ios-deploy"
+      "kubectl-argo-rollouts"
+      "maestro"
+      "miniserve"
+      "mole"
+      "mongosh"
+      "nx"
+      "opencode"
+      "parallel"
+      "pigz"
+      "postgresql@18"
+      "python@3.13"
+      "telnet"
+      "watch"
     ];
 
     casks = [
@@ -134,6 +155,10 @@
       # Tools for cross-platform compatibility
       "wine-stable" # Windows compatibility layer
       "zulu@17" # Certified OpenJDK distribution
+
+      "gcloud-cli"
+      "logoer"
+      "mongodb-compass"
     ];
   };
 }
