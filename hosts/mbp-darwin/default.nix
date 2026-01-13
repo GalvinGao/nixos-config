@@ -131,13 +131,33 @@
         pngquant
         rclone
         rabbitmq-server
-        redis
         speedtest-cli
         tmux
         tree
         wget
         yq
         yt-dlp
+
+        # Migrated from Homebrew
+        cloudflared
+        consul
+        awscli2
+        s5cmd
+        ffmpeg
+        axel
+        pkg-config
+        httpie
+        arp-scan
+        asciinema
+        ast-grep
+        miniserve
+        parallel
+        pigz
+        python313
+        inetutils # includes telnet
+        watch
+        act
+        pv
       ];
     };
   };

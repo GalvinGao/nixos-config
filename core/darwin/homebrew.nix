@@ -17,53 +17,35 @@
     ];
 
     brews = [
-      # Network & Infrastructure
-      "cloudflared"
-      "hashicorp/tap/consul"
+      # Network & Infrastructure (Homebrew-only)
       "siderolabs/tap/talosctl"
-      "awscli"
-      "s5cmd"
-      "ffmpeg"
-      "axel"
       "qshell"
 
+      # Databases (keep in Homebrew)
       "redis"
       "mysql"
+      "postgresql@14"
       "postgresql@16"
       "postgresql@17"
       "postgresql@18"
       "nats-server"
+      "mongosh"
+
       "cocoapods"
       "ampli"
 
       "baidupcs-go"
-      "pkgconfig"
-      "httpie"
 
-      "arp-scan"
-      "asciinema"
-      "ast-grep"
       "bundletool"
       "ios-deploy"
       "kubectl-argo-rollouts"
-      "maestro"
-      "miniserve"
       "tw93/tap/mole"
-      "mongosh"
       "nx"
       "opencode"
-      "parallel"
-      "pigz"
-      "python@3.13"
-      "telnet"
-      "watch"
 
       # Dependencies that can't be auto-removed
-      "act"
       "doge"
       "node@18" # required by ampli
-      "postgresql@14"
-      "pv"
     ];
 
     casks = [
