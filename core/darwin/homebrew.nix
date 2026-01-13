@@ -42,6 +42,7 @@
       "tw93/tap/mole"
       "nx"
       "opencode"
+      "zellij"
 
       # Dependencies that can't be auto-removed
       "doge"
