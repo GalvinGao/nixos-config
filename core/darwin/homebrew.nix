@@ -30,8 +30,8 @@
       "mysql"
       "postgresql@16"
       "postgresql@17"
+      "postgresql@18"
       "nats-server"
-      "nats"
       "cocoapods"
       "ampli"
 
@@ -53,7 +53,6 @@
       "opencode"
       "parallel"
       "pigz"
-      "postgresql@18"
       "python@3.13"
       "telnet"
       "watch"
