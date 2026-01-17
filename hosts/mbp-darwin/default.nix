@@ -158,6 +158,8 @@
         watch
         act
         pv
+
+        proto
       ];
     };
   };

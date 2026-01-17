@@ -120,6 +120,8 @@
       [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
       [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
       [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+      eval "$(proto activate)"
     '';
   };
 }
