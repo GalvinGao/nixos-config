@@ -11,6 +11,7 @@
 
     taps = [
       "amplitude/ampli"
+      "cameroncooke/axe"
       "hashicorp/tap"
       "siderolabs/tap"
       "tw93/tap" # for mole
@@ -35,6 +36,7 @@
       "ampli"
 
       "baidupcs-go"
+      "cameroncooke/axe/axe"
 
       "bundletool"
       "ios-deploy"
@@ -47,6 +49,8 @@
       # Dependencies that can't be auto-removed
       "doge"
       "node@18" # required by ampli
+
+      "xcbeautify"
     ];
 
     casks = [
