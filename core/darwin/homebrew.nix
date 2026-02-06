@@ -52,6 +52,11 @@
 
       "xcbeautify"
       "brotli"
+
+      # Media & Utilities
+      "ffmpeg"
+      "vgmstream"
+      "wakatime-cli"
     ];
 
     casks = [
