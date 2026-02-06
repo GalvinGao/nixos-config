@@ -51,6 +51,7 @@
       "node@18" # required by ampli
 
       "xcbeautify"
+      "brotli"
     ];
 
     casks = [
