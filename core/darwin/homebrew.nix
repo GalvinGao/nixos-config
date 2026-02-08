@@ -40,7 +40,15 @@
 
       "bundletool"
       "ios-deploy"
+
+      # Kubernetes & Container Tools
+      "helm"
+      "kubectl"
       "kubectl-argo-rollouts"
+      "kubectx"
+      "kubeseal"
+      "helm"
+
       "tw93/tap/mole"
       "nx"
       "opencode"
