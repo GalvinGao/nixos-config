@@ -48,6 +48,7 @@
       "kubectx"
       "kubeseal"
       "helm"
+      "argocd"
 
       "tw93/tap/mole"
       "nx"

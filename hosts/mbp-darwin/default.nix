@@ -43,9 +43,7 @@
     };
   };
 
-  nixpkgs.overlays = [
-    inputs.morlana.overlays.default
-  ];
+  nixpkgs.overlays = [ ];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -76,7 +74,6 @@
       };
 
       home.packages = with pkgs; [
-        morlana
         yazi
         just
         pixman
@@ -84,6 +81,7 @@
 
         nil
         nixfmt
+        nh
 
         autojump
         starship
@@ -98,7 +96,7 @@
         # Development
         openjdk
         apktool
-        argocd
+        # argocd  # Build fails due to missing git in build sandbox - use Homebrew if needed
         aria2
         cmake
         dive
