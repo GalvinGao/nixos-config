@@ -66,6 +66,8 @@
       "ffmpeg"
       "vgmstream"
       "wakatime-cli"
+
+      "dotnet@9"
     ];
 
     casks = [

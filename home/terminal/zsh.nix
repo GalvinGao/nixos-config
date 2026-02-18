@@ -42,6 +42,7 @@
       HISTSIZE = "100000000";
       SAVEHIST = "100000000";
       BUN_INSTALL = "$HOME/.bun";
+      DOTNET_ROOT = "/opt/homebrew/opt/dotnet@9/libexec";
       PKG_CONFIG_PATH = "/opt/homebrew/Cellar/vips/8.16.0/lib/pkgconfig:$PKG_CONFIG_PATH";
     };
 
@@ -66,7 +67,7 @@
 
     initContent = ''
       # Path additions
-      export PATH="/opt/homebrew/Cellar/postgresql@16/16.6/bin:$HOME/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/Users/galvin/go/bin:/Users/galvin/Static/PATH:/Users/galvin/.cargo/bin:/Users/galvin/.local/bin/"
+      export PATH="/opt/homebrew/opt/dotnet@9/bin:/opt/homebrew/Cellar/postgresql@16/16.6/bin:$HOME/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/Users/galvin/go/bin:/Users/galvin/Static/PATH:/Users/galvin/.cargo/bin:/Users/galvin/.local/bin/"
       export PATH="$BUN_INSTALL/bin:$PATH"
       export PATH="/usr/local/clamav/bin:/usr/local/clamav/sbin:$PATH"
 
