@@ -83,6 +83,7 @@
       "postman" # API platform for building and testing
       "redis-insight" # Redis GUI client
       "swiftformat-for-xcode" # Swift code formatter
+      "visual-studio-code" # VS Code stable build
       "visual-studio-code@insiders" # VS Code Insiders build
       "vscodium" # Community-driven VS Code
       "xcodes-app" # Xcode version manager
@@ -125,6 +126,7 @@
       "wechat" # Messaging and social
       "whatsapp" # Messaging platform
       "wireshark-app" # Network protocol analyzer
+      "slack" # Team communication and collaboration
 
       # Media & Design Tools
       # Creative tools for media management and design
