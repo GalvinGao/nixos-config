@@ -43,7 +43,19 @@
     };
   };
 
-  nixpkgs.overlays = [ ];
+  nixpkgs.overlays = [
+    (final: prev: {
+      python3Packages = prev.python3Packages.overrideScope (
+        pyFinal: pyPrev: {
+          jeepney = pyPrev.jeepney.overridePythonAttrs (old: {
+            doCheck = false;
+            doInstallCheck = false;
+            pythonImportsCheck = [ ];
+          });
+        }
+      );
+    })
+  ];
 
   home-manager = {
     useGlobalPkgs = true;
