@@ -167,6 +167,8 @@
 
       "gcloud-cli"
       "mongodb-compass"
+
+      "productdevbook/tap/portkiller"
     ];
   };
 }
