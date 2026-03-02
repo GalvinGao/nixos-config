@@ -19,6 +19,7 @@
 
     brews = [
       # Network & Infrastructure (Homebrew-only)
+      "cloudflared"
       "siderolabs/tap/talosctl"
       "qshell"
 

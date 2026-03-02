@@ -70,6 +70,7 @@
       export PATH="/opt/homebrew/opt/dotnet@9/bin:/opt/homebrew/Cellar/postgresql@16/16.6/bin:$HOME/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/Users/galvin/go/bin:/Users/galvin/Static/PATH:/Users/galvin/.cargo/bin:/Users/galvin/.local/bin/"
       export PATH="$BUN_INSTALL/bin:$PATH"
       export PATH="/usr/local/clamav/bin:/usr/local/clamav/sbin:$PATH"
+      export PATH="/Users/galvin/.local/share/fnm/node-versions/v25.6.1/installation/bin:$PATH"
 
       # Functions
       function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ }
