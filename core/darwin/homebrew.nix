@@ -69,6 +69,8 @@
       "wakatime-cli"
 
       "dotnet@9"
+      "swiftlint"
+      "swiftformat"
     ];
 
     casks = [
