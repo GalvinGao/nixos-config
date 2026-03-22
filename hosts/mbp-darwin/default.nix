@@ -29,13 +29,47 @@
   system.primaryUser = "galvin";
 
   system.defaults = {
+    # Dock
     dock.autohide = true;
+    dock.autohide-delay = 0.0;
     dock.mru-spaces = true;
+    dock.largesize = 41;
+    dock.tilesize = 44;
+    dock.wvous-tl-corner = 2;
+    dock.wvous-tr-corner = 4;
+    dock.wvous-bl-corner = 14;
+    dock.wvous-br-corner = 5;
+
+    # Finder
     finder.AppleShowAllExtensions = true;
     finder.AppleShowAllFiles = true;
     finder._FXSortFoldersFirst = false;
     finder.FXEnableExtensionChangeWarning = false;
+    finder.FXPreferredViewStyle = "clmv";
+    finder.NewWindowTarget = "PfHm";
+    finder.ShowExternalHardDrivesOnDesktop = false;
+    finder.ShowRemovableMediaOnDesktop = false;
+
+    # Global
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
+
+    # Trackpad
+    trackpad.Clicking = true;
+    trackpad.scaling = 0.875;
+
+    # Screenshot
+    screencapture.style = "display";
+
+    # Menu Bar Clock
+    menuExtraClock.IsAnalog = true;
+    menuExtraClock.ShowDate = 2;
+    menuExtraClock.ShowDayOfWeek = false;
+
+    # Window Manager
+    WindowManager.HideDesktop = true;
+
     CustomSystemPreferences = {
       "com.apple.Music" = {
         userWantsPlaybackNotifications = false;

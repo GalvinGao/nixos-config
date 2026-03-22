@@ -11,9 +11,11 @@
 
     taps = [
       "amplitude/ampli"
+      "argoproj/tap"
       "cameroncooke/axe"
       "hashicorp/tap"
       "siderolabs/tap"
+      "steipete/tap"
       "tw93/tap" # for mole
     ];
 
@@ -42,13 +44,13 @@
       "bundletool"
       "ios-deploy"
 
+      "nmap"
+
       # Kubernetes & Container Tools
       "helm"
-      "kubectl"
       "kubectl-argo-rollouts"
       "kubectx"
       "kubeseal"
-      "helm"
       "argocd"
 
       "tw93/tap/mole"
@@ -71,6 +73,8 @@
       "dotnet@9"
       "swiftlint"
       "swiftformat"
+
+      "prek"
     ];
 
     casks = [
@@ -89,7 +93,8 @@
       "visual-studio-code" # VS Code stable build
       "visual-studio-code@insiders" # VS Code Insiders build
       "vscodium" # Community-driven VS Code
-      "xcodes-app" # Xcode version manager
+      "xcodes" # Xcode version manager (CLI)
+      "xcodes-app" # Xcode version manager (GUI)
 
       # Web Browsers & Development
       # Web browsers and development tools
@@ -128,7 +133,8 @@
       "transmission" # Torrent client
       "wechat" # Messaging and social
       "whatsapp" # Messaging platform
-      "wireshark-app" # Network protocol analyzer
+      "wireshark" # Network protocol analyzer (CLI)
+      "wireshark-app" # Network protocol analyzer (GUI)
       "slack" # Team communication and collaboration
 
       # Media & Design Tools
@@ -142,6 +148,9 @@
       "vlc" # Cross-platform multimedia player
       "xnconvert" # Batch image processor
 
+      # Education & Publishing
+      "basictex" # Minimal TeX distribution
+
       # QuickLook Extensions
       # Enhanced file preview plugins for macOS
       "qlcolorcode" # Source code with syntax highlighting
@@ -150,6 +159,7 @@
       "qlvideo" # Video thumbnails
       "quicklook-json" # JSON files
       "quicklookase" # Adobe Swatch Exchange files
+      "quicklook-video" # Video file previews
 
       # Development Fonts
       # Programming and development optimized fonts
@@ -168,7 +178,9 @@
       "wine-stable" # Windows compatibility layer
       "zulu@17" # Certified OpenJDK distribution
 
+      "codexbar" # Code snippet manager
       "gcloud-cli"
+      "google-cloud-sdk" # Legacy name for gcloud-cli
       "mongodb-compass"
 
       "productdevbook/tap/portkiller"
