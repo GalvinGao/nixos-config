@@ -46,7 +46,7 @@
     finder._FXSortFoldersFirst = false;
     finder.FXEnableExtensionChangeWarning = false;
     finder.FXPreferredViewStyle = "clmv";
-    finder.NewWindowTarget = "PfHm";
+    finder.NewWindowTarget = "Home";
     finder.ShowExternalHardDrivesOnDesktop = false;
     finder.ShowRemovableMediaOnDesktop = false;
 
@@ -57,10 +57,10 @@
 
     # Trackpad
     trackpad.Clicking = true;
-    trackpad.scaling = 0.875;
+    NSGlobalDomain."com.apple.trackpad.scaling" = 0.875;
 
     # Screenshot
-    screencapture.style = "display";
+    screencapture.type = "display";
 
     # Menu Bar Clock
     menuExtraClock.IsAnalog = true;
@@ -106,6 +106,10 @@
       home.username = "galvin";
       home.homeDirectory = "/Users/galvin";
       home.stateVersion = "25.05";
+
+      home.activation.installClaudeCli = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        run ${pkgs.bash}/bin/bash -c 'export PATH="${pkgs.curl}/bin:/usr/bin:$PATH"; curl -fsSL https://claude.ai/install.sh | ${pkgs.bash}/bin/bash'
+      '';
 
       programs.home-manager.enable = true;
       programs.fzf = {
