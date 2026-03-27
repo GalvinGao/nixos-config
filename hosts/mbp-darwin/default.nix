@@ -111,6 +111,10 @@
         run ${pkgs.bash}/bin/bash -c 'export PATH="${pkgs.curl}/bin:/usr/bin:$PATH"; curl -fsSL https://claude.ai/install.sh | ${pkgs.bash}/bin/bash'
       '';
 
+      home.activation.installCodexCli = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        run ${pkgs.bash}/bin/bash -c 'eval "$(${pkgs.fnm}/bin/fnm env)"; npm i -g @openai/codex'
+      '';
+
       programs.home-manager.enable = true;
       programs.fzf = {
         enable = true;
