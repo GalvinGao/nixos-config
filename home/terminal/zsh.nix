@@ -63,6 +63,7 @@
       nr = "npm run";
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
       ecr_dive = "sh /Users/galvin/Static/ecr_inspect.sh";
+      yolo = "claude --dangerously-skip-permissions";
     };
 
     initContent = ''
