@@ -112,7 +112,7 @@
       '';
 
       home.activation.installCodexCli = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        run ${pkgs.bash}/bin/bash -c 'eval "$(${pkgs.fnm}/bin/fnm env)"; npm i -g @openai/codex'
+        run ${pkgs.bash}/bin/bash -c 'eval "$(${pkgs.fnm}/bin/fnm env --shell bash)"; npm i -g @openai/codex'
       '';
 
       programs.home-manager.enable = true;

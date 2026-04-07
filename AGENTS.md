@@ -107,5 +107,7 @@ Configured in `hosts/mbp-darwin/default.nix` `system.defaults`:
 - When adding a CLI tool: prefer `home.packages` in `hosts/mbp-darwin/default.nix`. Fall back to `homebrew.nix` brews if it doesn't build on nix or needs a tap.
 - When adding a GUI app: add to `homebrew.nix` casks.
 - When adding a tool that needs a custom install (npm global, curl script, etc.): add an activation script in `hosts/mbp-darwin/default.nix`.
+- When a user gives an imperative install command (for example `brew install rtk`), treat it as a declarative update request for this nix repo. Do not just run the command by itself and stop; instead, update the corresponding nix files to declare the change.
 - After changes: run `make switch` to apply.
+- If `make` completes without issues, stage the user-requested changes and create a commit.
 - Keep `homebrew.nix` comments consistent with existing category groupings.

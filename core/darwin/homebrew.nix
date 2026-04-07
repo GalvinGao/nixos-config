@@ -83,6 +83,7 @@
       # Full-featured development environments and code editors
       "android-studio" # Android development IDE
       "copilot-for-xcode" # GitHub Copilot for Xcode
+      "codex-app" # OpenAI Codex desktop app
       "devcleaner" # Xcode cache cleaner
       "ghostty" # Modern GPU-accelerated terminal
       "hoppscotch" # API development ecosystem
