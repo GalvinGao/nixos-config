@@ -13,20 +13,17 @@
       "amplitude/ampli"
       "argoproj/tap"
       "cameroncooke/axe"
-      "hashicorp/tap"
       "siderolabs/tap"
-      "steipete/tap"
       "tw93/tap" # for mole
       "productdevbook/tap" # for portkiller
     ];
 
     brews = [
       # Network & Infrastructure (Homebrew-only)
-      "cloudflared"
       "siderolabs/tap/talosctl"
       "qshell"
 
-      # Databases (keep in Homebrew)
+      # Databases (keep in Homebrew — brew services for daemon management)
       "clickhouse" # ClickHouse database client
       "redis"
       "mysql"
@@ -35,7 +32,6 @@
       "postgresql@17"
       "postgresql@18"
       "nats-server"
-      "mongosh"
 
       "cocoapods"
       "ampli"
@@ -43,40 +39,18 @@
       "baidupcs-go"
       "cameroncooke/axe/axe"
 
-      "bundletool"
-      "ios-deploy"
-
-      "nmap"
-
       # Kubernetes & Container Tools
-      "helm"
       "kubectl-argo-rollouts"
-      "kubectx"
-      "kubeseal"
       "argocd"
 
       "tw93/tap/mole"
       "nx"
-      "opencode"
-      "zellij"
 
       # Dependencies that can't be auto-removed
       "doge"
       "node@18" # required by ampli
 
-      "xcbeautify"
-      "brotli"
-
-      # Media & Utilities
-      "ffmpeg"
-      "vgmstream"
-      "wakatime-cli"
-
       "dotnet@9"
-      "swiftlint"
-      "swiftformat"
-
-      "prek"
     ];
 
     casks = [

@@ -220,6 +220,24 @@
         wrk # HTTP benchmarking
         flyctl # Fly.io CLI
         binwalk
+
+        # Migrated from Homebrew brews
+        nmap
+        kubernetes-helm # brew: helm (nix `helm` is a music synthesizer)
+        kubectx
+        kubeseal
+        zellij
+        brotli
+        xcbeautify
+        bundletool
+        ios-deploy
+        mongosh
+        swiftlint
+        swiftformat
+        wakatime-cli
+        vgmstream
+        opencode
+        prek
       ];
     };
   };
