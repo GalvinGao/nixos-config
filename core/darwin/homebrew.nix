@@ -27,6 +27,7 @@
       "qshell"
 
       # Databases (keep in Homebrew)
+      "clickhouse" # ClickHouse database client
       "redis"
       "mysql"
       "postgresql@14"

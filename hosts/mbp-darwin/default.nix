@@ -212,6 +212,14 @@
         pv
 
         proto
+
+        # Identified from shell history (not previously declared)
+        neovim
+        mosh
+        natscli # NATS CLI client (nats-server is in homebrew)
+        wrk # HTTP benchmarking
+        flyctl # Fly.io CLI
+        binwalk
       ];
     };
   };
