@@ -24,7 +24,6 @@
       "qshell"
 
       # Databases (keep in Homebrew — brew services for daemon management)
-      "clickhouse" # ClickHouse database client
       "redis"
       "mysql"
       "postgresql@14"
@@ -84,6 +83,7 @@
       "appcleaner" # Thorough app uninstaller
       "apparency" # App security inspector
       "coconutbattery" # Battery health monitor
+      "dockdoor" # Dock window previews and switcher
       "gpg-suite" # Encryption and signing tools
       "gstreamer-runtime" # Multimedia framework
       "keka" # File compression tool
