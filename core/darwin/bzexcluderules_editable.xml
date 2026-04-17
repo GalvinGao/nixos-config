@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<bzexclusions>
+
+<!-- Editable Exclusions: You may edit this file.  WARNING: ONLY FOR ADVANCED USERS! -->
+<!--                      To restore the defaults, remove this file (it will return).-->
+<!--                                                                                 -->
+<!-- Rule 1: All the excludefname_rule below are case insensitive.                   -->
+<!--                                                                                 -->
+<!-- Rule 2: a file must match ALL criteria on the line to be excluded from backup.  -->
+<!--                                                                                 -->
+<!-- Rule 3: An excludefname_rule must specify all criteria. Use "*" to skip criteria. -->
+<!--                                                                                 -->
+<!-- Rule 4: "skipFirstCharThenStartsWith" - is "*" or must be at least 4 chars long.-->
+<!--                                                                                 -->
+<!-- Rule 5: All rules apply to all attached volumes.  On Windows this means all     -->
+<!--         rules are applied to C:\, D:\, E:\, etc.  On Mac, this means "/" and    -->
+<!--         also /Volumes/externalUsbDrive/ and /Volumes/movies/, etc.              -->
+<!--                                                                                 -->
+<!-- List of valid osVers for windows: seven, eight, ten, eleven                     -->
+<!--                                                                                 -->
+<!-- List of valid osVers for mac: 10.13, 10.14, 10.15,                              -->
+<!--                               11, 12, 13, 14, 15, 26                            -->
+<!--                                                                                 -->
+<!-- "hasFileExtension" vs "endsWith" - a "file extension" in our context is         -->
+<!--                    strictly defined as the last period followed by              -->
+<!--                    non-space simple ASCII characters and does not               -->
+<!--                    contain forward slash (/) or back slash (\).  The "endsWith" -->
+<!--                    is more general, like it can have spaces and                 -->
+<!--                    include either slash.  The "hasFileExtension" is faster and  -->
+<!--                    helps the code group together same file extensions so you    -->
+<!--                    should always specify the hasFileExtension if possible.      -->
+<!--                                                                                 -->
+<!-- Performance hints: always specify a "skipFirstCharThenStartsWith" if            -->
+<!--                    possible, it is very fast and help prune 99% of files        -->
+<!--                    from undergoing any more criteria checks.                    -->
+<!--                    Internally, the code groups together many tests that have    -->
+<!--                    identical startsWith and skipFirstCharThenStartsWith         -->
+<!--                    so those comparisons are only done once (not once for each   -->
+<!--                    excludefname_rule).  Next is specify an "hasFileExtension"   -->
+<!--                    if possible, or if not then define "endsWith" which are      -->
+<!--                    faster performance than the "contains_1" and "contains_2".   -->
+<!--                                                                                 -->
+<!--                    On Win7 system, C:\Users\ lines account for 10 percent of    -->
+<!--                    the lines in "per volume filelists" so that is a great prune -->
+<!--                    to get rid of 90% of the rest of the criteria.               -->
+
+<!-- Below here is for Microsoft Windows systems (7, 8, 10, 11)                      -->
+<!-- Below here is for Microsoft Windows systems (7, 8, 10, 11)                      -->
+<!-- Below here is for Microsoft Windows systems (7, 8, 10, 11)                      -->
+<!-- Below here is for Microsoft Windows systems (7, 8, 10, 11)                      -->
+
+<!-- This block are the optional Windows excludes the customer is allowed to edit    -->
+
+<!-- This block is for Internet Explorer history and cache files -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\microsoft\windows\webcache\webcachev01.dat" hasFileExtension="dat" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\cookies\index.dat" hasFileExtension="dat" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\recent\index.dat" hasFileExtension="dat" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\userdata\index.dat" hasFileExtension="dat" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\feeds cache\index.dat" hasFileExtension="dat" />
+
+<!-- This block is for temporary internet files and cookies, temp folders -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\local settings\temporary internet files\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\windows\temporary internet files\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\microsoft\windows\cookies\" contains_2="\appdata\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\packages\microsoft" contains_2="\cookies\" doesNotContain="*" endsWith="*" hasFileExtension="txt" />
+<excludefname_rule plat="win" osVers="xp" ruleIsOptional="t" skipFirstCharThenStartsWith=":\Documents and Settings\" contains_1="\cookies\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="txt" />
+<excludefname_rule plat="win" osVers="xp" ruleIsOptional="t" skipFirstCharThenStartsWith=":\Documents and Settings\" contains_1="\local settings\temp\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\temp\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\microsoft\windows\history\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\MicrosoftEdge\SharedCacheContainers\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- This block is for Microsoft Cortana -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\AppData\Local\Packages\Microsoft.Windows.Cortana" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- This block is for temporary internet files and cookies, temp folders -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\local settings\temporary internet files\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\windows\temporary internet files\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\microsoft\windows\cookies\" contains_2="\appdata\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\packages\microsoft" contains_2="\cookies\" doesNotContain="*" endsWith="*" hasFileExtension="txt" />
+<excludefname_rule plat="win" osVers="xp" ruleIsOptional="t" skipFirstCharThenStartsWith=":\Documents and Settings\" contains_1="\cookies\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="txt" />
+<excludefname_rule plat="win" osVers="xp" ruleIsOptional="t" skipFirstCharThenStartsWith=":\Documents and Settings\" contains_1="\local settings\temp\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\temp\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\microsoft\windows\history\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+
+<!-- This block is to exclude the Windows registry file which is 8 GBytes and changes every second of every day and is part of "programs" that can be reinstalled -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\ntuser.dat" hasFileExtension="dat" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\ntuser.dat.log" hasFileExtension="log" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\ntuser.dat.log1" hasFileExtension="log1" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\ntuser.dat.log2" hasFileExtension="log2" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\microsoft\windows\usrclass.dat" hasFileExtension="dat" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\microsoft\windows\usrclass.dat.log1" hasFileExtension="log1" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\microsoft\windows\usrclass.dat.log2" hasFileExtension="log2" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\ntuser.dat" contains_2="*" doesNotContain="*" endsWith=".tm.blf" hasFileExtension="blf" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\usrclass.dat" contains_2="*" doesNotContain="*" endsWith=".tm.blf" hasFileExtension="blf" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="*" contains_1="*" contains_2="*" doesNotContain="*" endsWith="\ntuser.ini" hasFileExtension="ini" />
+
+
+<!-- This block is for temporary Mozilla and Firefox files -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\mozilla\" contains_2="\cache\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\local settings\application data\mozilla\" contains_2="\cache\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- This block is for a web browser named "Flock" leaving temporary files around -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\flock\browser\profiles\" contains_2="\cache\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\flock\browser\profiles\" contains_2="*" doesNotContain="*" endsWith="\urlclassifier3.sqlite" hasFileExtension="sqlite" />
+<excludefname_rule plat="win" osVers="xp" ruleIsOptional="t" skipFirstCharThenStartsWith="*" contains_1="\flock\browser\profiles\" contains_2="\cache\" doesNotContain="*" endsWith="\urlclassifier3.sqlite" hasFileExtension="sqlite" />
+
+<!-- This block is for temporary Google files -->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\appdata\local\google\" contains_2="\appdata\local\google\chrome\user data" doesNotContain="bookmarks|shortcuts|preferences" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith=":\Users\" contains_1="\local settings\application data\google\" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- This block is for Apple programs running on Windows like iTunes, Safari, etc-->
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="*" contains_1="\itunes\" contains_2="\itunes\itunes music\podcasts\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="win" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="*" contains_1="\itunes\" contains_2="\itunes\itunes media\podcasts\" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Below here is for Apple Laptop and Desktop Operating systems (OS X running on Macintosh) -->
+<!-- Below here is for Apple Laptop and Desktop Operating systems (OS X running on Macintosh) -->
+<!-- Below here is for Apple Laptop and Desktop Operating systems (OS X running on Macintosh) -->
+<!-- Below here is for Apple Laptop and Desktop Operating systems (OS X running on Macintosh) -->
+
+<!-- This block are the optional Apple OS X excludes the customer is allowed to edit    -->
+<!-- none specified here -->
+
+
+<!-- Top level folders on OS X we absolutely do not want to back up because they contain executable software or temp files -->
+ 
+<!-- Below here are rules that are VERY expensive to execute. No quick pruning of 90% of cases, forcing a lot of execution.  Try to reduce the number of these! -->
+
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/itunes/" contains_2="/itunes/itunes music/podcasts/" doesNotContain="*" endsWith="*" hasFileExtension="*" />   <!-- Backblaze doesn't backup podcasts -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/itunes/" contains_2="/itunes/itunes media/podcasts/" doesNotContain="*" endsWith="*" hasFileExtension="*" />   <!-- Backblaze doesn't backup podcasts -->
+
+
+<!-- Below here is for Google apps like Chrome -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/application support/google/chrome/" contains_2="/safe browsing" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/application support/google/chrome/default" contains_2="/history" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/application support/google/chrome/default" contains_2="/thumbnails" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/application support/google/chrome/default" contains_2="/archived history" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Below here is for Firefox the web browser which caches things like: /Users/<login>/Library/Application Support/Firefox/Profiles/cvbqc0ko.default/cookies.txt -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/firefox/" contains_2="/library/caches/firefox/profiles/" doesNotContain="bookmark" endsWith="*" hasFileExtension="*" />
+
+<excludefname_rule bzmergeblock="001" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.dropbox/.dropbox" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="cache" />
+<excludefname_rule bzmergeblock="001" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/application support/spotify" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule bzmergeblock="001" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/application support/slack" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule bzmergeblock="001" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="loginhelper" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="app" />
+<excludefname_rule bzmergeblock="001" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/Safari/" contains_2="/touch icons cache" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule bzmergeblock="001" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/Safari/" contains_2="/favicon cache" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule bzmergeblock="002" plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/containers/com.docker.docker/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Below here is for node_modules. -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/node_modules/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.git/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Package manager caches and dependencies -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.pnpm-store/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.yarn/cache/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.bun/install/cache/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.npm/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/pods/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.cocoapods/repos/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.cargo/registry/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.rustup/toolchains/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.gradle/caches/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.m2/repository/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.nuget/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Python virtual environments and caches -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.venv/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/venv/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/__pycache__/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.conda/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Build output and tool caches -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.next/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.nuxt/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.turbo/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.cache/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/deriveddata/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- VM and container data -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.orbstack/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.lima/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.colima/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.supabase/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.wine/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- macOS standard cache directory (used by nearly every app) -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/caches/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Xcode and iOS development -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/developer/coresimulator/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/developer/xcode/ios devicesupport/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Android development -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/library/android/sdk/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.android/avd/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Go module cache -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/go/pkg/mod/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Version managers (fnm, proto) -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.fnm/node-versions/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.proto/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- .NET SDK and tools -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.dotnet/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Helm chart cache -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/.helm/cache/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+<!-- Erlang/Elixir build artifacts -->
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/_build/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+<excludefname_rule plat="mac" osVers="*"  ruleIsOptional="t" skipFirstCharThenStartsWith="users/" contains_1="/deps/" contains_2="*" doesNotContain="*" endsWith="*" hasFileExtension="*" />
+
+</bzexclusions>

@@ -78,6 +78,9 @@
       "google-chrome" # Chrome stable
       "google-chrome@dev" # Chrome development channel
 
+      # Backup
+      "backblaze" # Cloud backup service
+
       # System & Security Tools
       # System utilities, security, and productivity enhancements
       "appcleaner" # Thorough app uninstaller
