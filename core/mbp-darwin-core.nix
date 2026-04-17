@@ -32,40 +32,8 @@
     dock.wvous-tr-corner = 4;
     dock.wvous-bl-corner = 14;
     dock.wvous-br-corner = 5;
-    # Dock tiles — left-to-right order. Rewritten on every `make switch`,
-    # so drag-reordering in the UI will not survive.
-    dock.persistent-apps = [
-      "/System/Applications/Launchpad.app"
-      "/Applications/Google Chrome.app"
-      "/Applications/Arc.app"
-      "/Applications/Claude.app"
-      "/System/Applications/Calendar.app"
-      "/Applications/Setapp/Spark Mail.app"
-      "/System/Applications/Music.app"
-      "/Applications/WeChat.app"
-      "/Applications/QQ.app"
-      "/Applications/LarkSuite.app"
-      "/Applications/Telegram.app"
-      "/Applications/Discord.app"
-      "/Applications/Notion.app"
-      "/System/Applications/System Settings.app"
-      "/Applications/Ghostty.app"
-      "/Applications/Figma.app"
-      "/Applications/Hoppscotch.app"
-      "/Applications/Lens.app"
-      "/Applications/Transmit.app"
-      "/Applications/Setapp/TablePlus.app"
-      "/Applications/Superset.app"
-      "/Applications/Superconductor.app"
-      "/Applications/cmux.app"
-      "/Applications/Visual Studio Code.app"
-      "/Applications/Android Studio.app"
-      "/Applications/Xcode-26.1.1.app"
-      "/System/Applications/iPhone Mirroring.app"
-    ];
-    dock.persistent-others = [
-      "/Users/galvin/Downloads"
-    ];
+    # Dock tile lists (persistent-apps / persistent-others) are host-specific
+    # and declared in each host's thin shell under hosts/darwin/<host>/.
 
     # Finder
     finder.AppleShowAllExtensions = true;
