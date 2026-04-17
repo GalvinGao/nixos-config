@@ -1,5 +1,5 @@
 {
-  description = "Example nix-darwin system flake";
+  description = "Galvin's nix-darwin flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -23,15 +23,29 @@
       nixpkgs,
       ...
     }@inputs:
+    let
+      darwinSystems = import ./os/darwin.nix;
+
+      mkConfiguration =
+        { systems, mkSystem }:
+        builtins.listToAttrs (
+          builtins.concatMap (
+            sys:
+            builtins.map (host: {
+              name = host;
+              value = mkSystem {
+                system = sys.system;
+                specialArgs = { inherit inputs; };
+                modules = sys.moduleResolver host;
+              };
+            }) sys.hosts
+          ) systems
+        );
+    in
     {
-      # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#Galvin-MacBook-Pro
-      darwinConfigurations = {
-        "Galvin-MacBook-Pro-2024" = nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = { inherit inputs; };
-          modules = [ ./hosts/mbp-darwin ];
-        };
+      darwinConfigurations = mkConfiguration {
+        systems = darwinSystems;
+        mkSystem = nix-darwin.lib.darwinSystem;
       };
 
       homeManagerModules = {
