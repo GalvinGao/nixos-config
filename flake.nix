@@ -27,7 +27,7 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#Galvin-MacBook-Pro
       darwinConfigurations = {
-        "Galvin-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        "Galvin-MacBook-Pro-2024" = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/mbp-darwin ];

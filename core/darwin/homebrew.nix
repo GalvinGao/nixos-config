@@ -16,6 +16,7 @@
       "siderolabs/tap"
       "tw93/tap" # for mole
       "productdevbook/tap" # for portkiller
+      "steipete/tap" # for codexbar
     ];
 
     brews = [

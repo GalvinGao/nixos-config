@@ -88,6 +88,13 @@
           });
         }
       );
+
+      # nushell 0.112 SHLVL tests fail inside the Nix sandbox on macOS.
+      # Pulled in transitively via bat-extras -> batgrep.
+      nushell = prev.nushell.overrideAttrs (old: {
+        doCheck = false;
+        doInstallCheck = false;
+      });
     })
   ];
 
