@@ -32,6 +32,40 @@
     dock.wvous-tr-corner = 4;
     dock.wvous-bl-corner = 14;
     dock.wvous-br-corner = 5;
+    # Dock tiles — left-to-right order. Rewritten on every `make switch`,
+    # so drag-reordering in the UI will not survive.
+    dock.persistent-apps = [
+      "/System/Applications/Launchpad.app"
+      "/Applications/Google Chrome.app"
+      "/Applications/Arc.app"
+      "/Applications/Claude.app"
+      "/System/Applications/Calendar.app"
+      "/Applications/Setapp/Spark Mail.app"
+      "/System/Applications/Music.app"
+      "/Applications/WeChat.app"
+      "/Applications/QQ.app"
+      "/Applications/LarkSuite.app"
+      "/Applications/Telegram.app"
+      "/Applications/Discord.app"
+      "/Applications/Notion.app"
+      "/System/Applications/System Settings.app"
+      "/Applications/Ghostty.app"
+      "/Applications/Figma.app"
+      "/Applications/Hoppscotch.app"
+      "/Applications/Lens.app"
+      "/Applications/Transmit.app"
+      "/Applications/Setapp/TablePlus.app"
+      "/Applications/Superset.app"
+      "/Applications/Superconductor.app"
+      "/Applications/cmux.app"
+      "/Applications/Visual Studio Code.app"
+      "/Applications/Android Studio.app"
+      "/Applications/Xcode-26.1.1.app"
+      "/System/Applications/iPhone Mirroring.app"
+    ];
+    dock.persistent-others = [
+      "/Users/galvin/Downloads"
+    ];
 
     # Finder
     finder.AppleShowAllExtensions = true;
@@ -84,6 +118,52 @@
     CustomSystemPreferences = {
       "com.apple.Music" = {
         userWantsPlaybackNotifications = false;
+      };
+    };
+
+    CustomUserPreferences = {
+      # Accessibility → Zoom. Ctrl+scroll toggles zoom; smooth scaling.
+      # Settings app may need to be relaunched for these to display.
+      "com.apple.universalaccess" = {
+        closeViewScrollWheelToggle = true;
+        closeViewSmoothImages = true;
+        closeViewZoomIndividualDisplays = true;
+        closeViewZoomScreenShareEnabledKey = true;
+        closeViewHotkeysEnabled = false;
+      };
+
+      # Finder browser toolbar — items, order, icon-only display mode.
+      # `TB Display Mode` 2 = icon only. Run `killall Finder` after a
+      # switch to pick up changes immediately.
+      "com.apple.finder" = {
+        "NSToolbar Configuration Browser" = {
+          "TB Default Item Identifiers" = [
+            "com.apple.finder.BACK"
+            "com.apple.finder.SWCH"
+            "NSToolbarSpaceItem"
+            "com.apple.finder.ARNG"
+            "com.apple.finder.SHAR"
+            "com.apple.finder.LABL"
+            "com.apple.finder.ACTN"
+            "NSToolbarSpaceItem"
+            "com.apple.finder.SRCH"
+          ];
+          "TB Display Mode" = 2;
+          "TB Icon Size Mode" = 1;
+          "TB Is Shown" = 1;
+          "TB Item Identifiers" = [
+            "com.apple.finder.BACK"
+            "com.apple.finder.SWCH"
+            "NSToolbarSpaceItem"
+            "com.apple.finder.ACTN"
+            "com.apple.finder.SHAR"
+            "com.apple.finder.NFLD"
+            "com.apple.finder.INFO"
+            "com.apple.finder.TRSH"
+            "com.apple.finder.SRCH"
+          ];
+          "TB Size Mode" = 1;
+        };
       };
     };
   };
