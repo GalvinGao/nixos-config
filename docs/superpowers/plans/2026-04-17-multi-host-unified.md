@@ -467,18 +467,20 @@ Replace the contents of `hosts/mbp-darwin/default.nix` with:
 
 This file is now 13 lines and is a functional equivalent of the old one — it's the transitional bridge until the flake entry point switches (Task 4).
 
-- [ ] **Step 3.3: Verify the transitional build still produces the baseline derivation**
+- [ ] **Step 3.3: Verify the transitional build produces the baseline closure**
+
+The success criterion for this task is **runtime closure package-set equality**, not hash equality. When `environment.systemPackages` moves from a root module into an imported module, the nix module system merges the list in a different order. That changes the `pkgs` arg to `buildEnv`, cascading into new hashes for `system-path`, `etc`, `system-applications`, and the top-level `darwin-system-*` — with no semantic change to what's installed.
 
 Run:
 ```sh
 NEW_PATH=$(nix build --no-link --print-out-paths .#darwinConfigurations.Galvin-MacBook-Pro-2024.system)
 BASELINE_PATH=$(cat /tmp/nix-darwin-baseline.txt)
-[ "$NEW_PATH" = "$BASELINE_PATH" ] && echo "OK: identical" || echo "DIFF: not identical"
+diff <(nix-store -q --requisites "$BASELINE_PATH" | sort) <(nix-store -q --requisites "$NEW_PATH" | sort)
 ```
 
-Expected: "OK: identical".
+Expected: the only differences are at most 4 hash-cascade artifacts — `darwin-system-*`, `system-path`, `etc`, `system-applications`. Every other store path (every installed package) must be identical.
 
-If it differs, diff with `nix store diff-closures` and investigate before proceeding.
+If any actual package path differs, STOP — something semantic changed. Run `nix store diff-closures "$BASELINE_PATH" "$NEW_PATH"` to see which package changed, investigate, and report back as DONE_WITH_CONCERNS or BLOCKED without committing.
 
 - [ ] **Step 3.4: Commit**
 
@@ -639,7 +641,7 @@ git rm hosts/mbp-darwin/default.nix
 rmdir hosts/mbp-darwin
 ```
 
-- [ ] **Step 4.6: Build both Darwin configurations and verify derivation parity**
+- [ ] **Step 4.6: Build both Darwin configurations and verify closure parity**
 
 ```sh
 PRIMARY_PATH=$(nix build --no-link --print-out-paths .#darwinConfigurations.Galvin-MacBook-Pro.system)
@@ -648,15 +650,22 @@ BASELINE_PATH=$(cat /tmp/nix-darwin-baseline.txt)
 echo "baseline: $BASELINE_PATH"
 echo "primary:  $PRIMARY_PATH"
 echo "2024:     $LEGACY_PATH"
-[ "$PRIMARY_PATH" = "$LEGACY_PATH" ] && echo "OK: the two hosts produce identical derivations" || echo "DIFF: hosts differ"
-[ "$LEGACY_PATH" = "$BASELINE_PATH" ] && echo "OK: 2024 matches baseline" || echo "DIFF: 2024 differs from baseline"
+
+# The two hosts should produce IDENTICAL derivations — their thin shells
+# and shared modules are byte-identical, so this is an exact hash match.
+[ "$PRIMARY_PATH" = "$LEGACY_PATH" ] && echo "OK: mbp-primary and mbp-2024 produce identical derivations" || echo "DIFF: the two hosts differ — investigate"
+
+# Compare the 2024 build's runtime closure to the baseline. Hash-cascade
+# artifacts (darwin-system-*, system-path, etc, system-applications) may
+# differ without being a problem; every other store path must be identical.
+diff <(nix-store -q --requisites "$BASELINE_PATH" | sort) <(nix-store -q --requisites "$LEGACY_PATH" | sort)
 ```
 
-Expected output:
-- `OK: the two hosts produce identical derivations` — because the thin shells and shared modules are identical.
-- `OK: 2024 matches baseline` — because the refactor is semantics-preserving.
+Expected:
+- `OK: mbp-primary and mbp-2024 produce identical derivations` — both hosts share the same thin-shell content and bundles.
+- The `diff` output contains **only** the four hash-cascade artifact differences (`darwin-system-*`, `system-path`, `etc`, `system-applications`). Every actual package path must match the baseline.
 
-If either check fails, run `nix store diff-closures "$BASELINE_PATH" "$LEGACY_PATH"` to investigate. Common causes: typo in `moduleResolver`, wrong relative path in a thin shell, forgotten import.
+If an actual package differs, `nix store diff-closures "$BASELINE_PATH" "$LEGACY_PATH"` to investigate. Common causes: typo in `moduleResolver`, wrong relative path in a thin shell, forgotten import.
 
 - [ ] **Step 4.7: Run `nix flake check`**
 
