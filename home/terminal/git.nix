@@ -19,11 +19,39 @@
       set-upstream = "!git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
     };
 
+    # Written to ~/.config/git/ignore; git reads XDG path automatically.
+    ignores = [
+      # Node
+      "npm-debug.log"
+
+      # Mac
+      ".DS_Store"
+
+      # Windows
+      "Thumbs.db"
+
+      # JetBrains
+      ".idea/"
+
+      # vi
+      "*~"
+
+      # General
+      "log/"
+      "*.log"
+
+      ".history/"
+      ".vscode/*"
+      "!.vscode/extensions.json"
+
+      # Local-only config files
+      ".superset/config.json"
+      ".claude/settings.local.json"
+      ".mcp.json"
+    ];
+
     extraConfig = {
-      core = {
-        excludesfile = "/Users/galvin/Static/gitignore_global";
-        autocrlf = "input";
-      };
+      core.autocrlf = "input";
       init.defaultBranch = "main";
       pull.rebase = true;
       push.default = "current";

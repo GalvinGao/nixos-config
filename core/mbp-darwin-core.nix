@@ -48,6 +48,14 @@
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
 
+    # Keyboard — fast repeat, no accent-popup on hold so keys repeat.
+    NSGlobalDomain.KeyRepeat = 2;
+    NSGlobalDomain.InitialKeyRepeat = 15;
+    NSGlobalDomain.ApplePressAndHoldEnabled = false;
+
+    # Mission Control / Spaces — switch to space containing the activated app.
+    NSGlobalDomain.AppleSpacesSwitchOnActivate = true;
+
     # Trackpad
     trackpad.Clicking = true;
     trackpad.Dragging = false;
@@ -60,9 +68,13 @@
 
     # Screenshot
     screencapture.type = "display";
+    screencapture.target = "file";
+    screencapture.disable-shadow = true;
+    screencapture.show-thumbnail = true;
 
     # Menu Bar Clock
     menuExtraClock.IsAnalog = true;
+    menuExtraClock.ShowAMPM = true;
     menuExtraClock.ShowDate = 2;
     menuExtraClock.ShowDayOfWeek = false;
 

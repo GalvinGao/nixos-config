@@ -4,6 +4,8 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    # Back up conflicting dotfiles on activation instead of refusing to switch.
+    backupFileExtension = "hm-backup";
     extraSpecialArgs = { inherit inputs; };
 
     users.galvin = {
@@ -12,6 +14,10 @@
         ./terminal/starship.nix
         ./terminal/atuin.nix
         ./terminal/git.nix
+        ./terminal/htop.nix
+        ./terminal/gh.nix
+        ./terminal/duckdb.nix
+        ./terminal/gpg.nix
       ];
 
       home.username = "galvin";
