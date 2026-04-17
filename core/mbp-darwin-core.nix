@@ -26,6 +26,8 @@
     dock.mru-spaces = true;
     dock.largesize = 41;
     dock.tilesize = 44;
+    dock.magnification = false;
+    dock.orientation = "bottom";
     dock.wvous-tl-corner = 2;
     dock.wvous-tr-corner = 4;
     dock.wvous-bl-corner = 14;
@@ -48,7 +50,13 @@
 
     # Trackpad
     trackpad.Clicking = true;
+    trackpad.Dragging = false;
+    trackpad.TrackpadRightClick = true;
+    trackpad.TrackpadThreeFingerDrag = false;
+    trackpad.FirstClickThreshold = 0;
+    trackpad.SecondClickThreshold = 0;
     NSGlobalDomain."com.apple.trackpad.scaling" = 0.875;
+    NSGlobalDomain."com.apple.trackpad.forceClick" = true;
 
     # Screenshot
     screencapture.type = "display";

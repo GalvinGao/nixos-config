@@ -57,12 +57,17 @@
       # Development Environments & IDEs
       # Full-featured development environments and code editors
       "android-studio" # Android development IDE
+      "beyond-compare" # File/folder diff and merge
       "copilot-for-xcode" # GitHub Copilot for Xcode
       "codex-app" # OpenAI Codex desktop app
+      "cursor" # AI-first code editor
       "devcleaner" # Xcode cache cleaner
+      "elasticvue" # Elasticsearch GUI client
       "ghostty" # Modern GPU-accelerated terminal
       "hoppscotch" # API development ecosystem
+      "iterm2" # Terminal replacement
       "lens" # Kubernetes management IDE
+      "opencode-desktop" # Open-source AI coding agent (desktop)
       "orbstack" # Fast Docker & Linux on macOS
       "postman" # API platform for building and testing
       "redis-insight" # Redis GUI client
@@ -71,9 +76,11 @@
       "visual-studio-code@insiders" # VS Code Insiders build
       "vscodium" # Community-driven VS Code
       "xcodes-app" # Xcode version manager
+      "zed" # High-performance multiplayer editor
 
       # Web Browsers & Development
       # Web browsers and development tools
+      "arc" # Browser with workspaces and spaces
       "chromium" # Open source browser
       "firefox" # Mozilla web browser
       "google-chrome" # Chrome stable
@@ -84,37 +91,52 @@
 
       # System & Security Tools
       # System utilities, security, and productivity enhancements
+      "1password" # Password manager
       "appcleaner" # Thorough app uninstaller
       "apparency" # App security inspector
       "coconutbattery" # Battery health monitor
       "dockdoor" # Dock window previews and switcher
       "gpg-suite" # Encryption and signing tools
       "gstreamer-runtime" # Multimedia framework
+      "hex-fiend" # Hex editor
       "keka" # File compression tool
-      "mac-mouse-fix" # Mouse/trackpad customization
       "maccy" # Clipboard manager
       "maczip" # Archiver with encryption
+      "macs-fan-control" # Manual fan control
       "medis" # Redis GUI client
       "notunes" # iTunes/Music auto-launch blocker
       "openmtp" # Android file transfer utility
       "raycast" # Productivity launcher
+      "setapp" # Curated app subscription
       "snipaste" # Screenshot and annotation
       "stats" # System monitor menubar app
       "suspicious-package" # Installer inspector
+      "yubico-authenticator" # YubiKey OTP/OATH client
 
       # Communication & Network Tools
       # Apps for communication, file transfer, and network analysis
+      "anydesk" # Remote desktop
+      "cloudflare-warp" # Cloudflare VPN / 1.1.1.1
       "cyberduck" # Cloud storage browser
       "discord" # Voice and text chat
-      "openvpn-connect" # VPN client
+      "lark" # Lark / Feishu workspace messenger
+      "motrix" # Download manager
+      "notion" # Notes, docs, wikis
       "qq" # Instant messaging
+      "surge" # Advanced proxy / traffic tool
+      "tailscale-app" # Zero-config mesh VPN
       "teamspeak-client@beta" # Voice chat client
       "telegram" # Messaging platform
+      "tencent-meeting" # Video conferencing
       "transmission" # Torrent client
+      "transmit" # SFTP/S3/cloud file transfer
+      "vnc-viewer" # RealVNC client
       "wechat" # Messaging and social
       "whatsapp" # Messaging platform
+      "windows-app" # Microsoft Windows App (Remote Desktop)
       "wireshark-app" # Network protocol analyzer
       "slack" # Team communication and collaboration
+      "zoom" # Video conferencing
 
       # Media & Design Tools
       # Creative tools for media management and design
@@ -122,10 +144,17 @@
       "moonlight" # Game streaming client
       "iina" # Modern media player
       "obs" # Open Broadcaster Software
+      "screen-studio" # Screen recording with auto-zoom
       "sigil" # EPUB ebook editor
       "sonobus" # Audio streaming
+      "steam" # Game distribution platform
       "vlc" # Cross-platform multimedia player
       "xnconvert" # Batch image processor
+
+      # AI & LLM Tools
+      "chatwise" # Multi-model AI chat client
+      "lm-studio" # Local LLM runner
+      "ollama-app" # Local LLM runtime
 
       # Education & Publishing
       "basictex" # Minimal TeX distribution
@@ -153,6 +182,7 @@
 
       # Platform Compatibility
       # Tools for cross-platform compatibility
+      "playcover-community" # Run iOS apps on Apple Silicon
       "wine-stable" # Windows compatibility layer
       "zulu@17" # Certified OpenJDK distribution
 

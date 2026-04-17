@@ -25,6 +25,17 @@
         run ${pkgs.bash}/bin/bash -c 'eval "$(${pkgs.fnm}/bin/fnm env --shell bash)"; npm i -g @openai/codex'
       '';
 
+      # Homebrew postgresql@N data dirs are per-version; assign each a unique port (543NN).
+      home.activation.configurePostgresPorts = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        for v in 14 16 17 18; do
+          conf="/opt/homebrew/var/postgresql@$v/postgresql.conf"
+          want="543$v"
+          if [ -f "$conf" ] && ! ${pkgs.gnugrep}/bin/grep -qE "^port = $want([[:space:]]|$)" "$conf"; then
+            run ${pkgs.gnused}/bin/sed -i -E "s/^#?[[:space:]]*port[[:space:]]*=[[:space:]]*[0-9]+/port = $want/" "$conf"
+          fi
+        done
+      '';
+
       programs.home-manager.enable = true;
       programs.fzf = {
         enable = true;
@@ -35,6 +46,28 @@
         extraPackages = with pkgs.bat-extras; [
           batgrep
         ];
+      };
+
+      # Ghostty — app installed via Homebrew cask; config is file-managed.
+      home.file."Library/Application Support/com.mitchellh.ghostty/config" = {
+        force = true;
+        text = ''
+          maximize = true
+          window-padding-x = 4
+          window-padding-y = 4
+          background-opacity = 0.95
+          background-blur = 20
+          minimum-contrast = 4
+          background = #0f0f0f
+          font-size = 16
+          font-family = "JetBrainsMono Nerd Font"
+          adjust-cell-height = 8
+          keybind = shift+enter=text:\n
+          keybind = alt+backspace=text:\x1b\x7f
+          keybind = global:alt+grave_accent=toggle_quick_terminal
+          quick-terminal-position = bottom
+          quick-terminal-animation-duration = 0.1
+        '';
       };
 
       home.packages = with pkgs; [
