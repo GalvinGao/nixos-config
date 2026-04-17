@@ -133,7 +133,6 @@
       "vnc-viewer" # RealVNC client
       "wechat" # Messaging and social
       "whatsapp" # Messaging platform
-      "windows-app" # Microsoft Windows App (Remote Desktop)
       "wireshark-app" # Network protocol analyzer
       "slack" # Team communication and collaboration
       "zoom" # Video conferencing
