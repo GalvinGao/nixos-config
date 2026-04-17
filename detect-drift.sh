@@ -4,7 +4,7 @@ set -uo pipefail
 # ── Config ───────────────────────────────────────────────────────────
 REPO_DIR="/etc/nix-darwin"
 HOMEBREW_NIX="$REPO_DIR/core/darwin/homebrew.nix"
-HOST_NIX="$REPO_DIR/hosts/mbp-darwin/default.nix"
+HOST_NIX="$REPO_DIR/home/mbp-darwin-home.nix"
 FLAKE_LOCK="$REPO_DIR/flake.lock"
 HM_BIN="/etc/profiles/per-user/galvin/bin"
 SYSTEM_BIN="/run/current-system/sw/bin"
@@ -126,7 +126,7 @@ declare -A BIN_MAP=(
 echo -e "${BOLD}"
 echo "══════════════════════════════════════════════════"
 echo "  nix-darwin Drift Report"
-echo "  Galvin-MacBook-Pro  •  $(date +%Y-%m-%d)"
+echo "  $(scutil --get LocalHostName 2>/dev/null || echo 'nix-darwin')  •  $(date +%Y-%m-%d)"
 echo "══════════════════════════════════════════════════"
 echo -e "${NC}"
 
@@ -678,7 +678,7 @@ fi
 # Print nix snippet for unmanaged defaults
 if [[ ${#UNMANAGED_ITEMS[@]} -gt 0 ]]; then
   echo ""
-  echo -e "  ${DIM}Add to hosts/mbp-darwin/default.nix under system.defaults:${NC}"
+  echo -e "  ${DIM}Add to core/mbp-darwin-core.nix under system.defaults:${NC}"
   echo ""
   for item in "${UNMANAGED_ITEMS[@]}"; do
     IFS='|' read -r desc val nix_path factory_val <<< "$item"
