@@ -183,7 +183,16 @@ Receives the `home-manager.users.galvin = { … }` block body:
    - line 7: `HOST_NIX="$REPO_DIR/home/mbp-darwin-home.nix"`. `HOST_NIX` is used once (line 262) to extract the `home.packages` list — which lives in the home bundle after the split. `HOMEBREW_NIX` stays pointed at `core/darwin/homebrew.nix` (unchanged).
    - line 129: display string (`Galvin-MacBook-Pro`) — make host-agnostic or read from `scutil --get LocalHostName`.
    - line 681: guidance message referencing `hosts/mbp-darwin/default.nix` — update to point at the correct new file for `system.defaults` (which moves to `core/mbp-darwin-core.nix`).
-8. Update `README.md` and `AGENTS.md` to reflect the new paths.
+8. Update `README.md` and `AGENTS.md` to reflect the new structure **and the durable design decisions** — these two docs are the repo's living reference. The spec is a point-in-time record; the README and AGENTS are what every future reader (human or agent) lands on first.
+
+   Both docs should make the following decisions explicit:
+
+   - **Unified multi-host flake.** Hosts are declared as data in `os/*.nix`; `flake.nix` iterates and builds all configurations. Adding a host is editing a list, not editing `flake.nix`. Both Darwin and NixOS flow through the same `mkConfiguration`.
+   - **Thin host shells + shared role bundles.** `hosts/<os>/<role>/default.nix` holds only host identity (hostname, `primaryUser`, `stateVersion`, platform). The bulk of the configuration lives in `core/<role>-<os>-core.nix` and `home/<role>-<os>-home.nix`. Host-specific divergence (if it ever arises) goes in the thin shell, not the shared bundle.
+   - **Platform-first module organization.** `core/darwin/` holds macOS-only system modules (homebrew, pam, backblaze). `core/nixos/` will appear when the first Linux host lands. `core/common/` is deliberately absent until real duplication forces it.
+   - **Deliberate simplicity (explicit non-goals).** No custom options module (`my-nix.role/tz/network`). No pattern-match helpers. These are deferred until heterogeneous hosts or 3+ hosts make them pay off. Call this out so future contributors don't add them speculatively.
+   - **Where packages live, updated.** `AGENTS.md`'s "Where Packages Live" and "Editing Guidelines" sections need new paths (`core/mbp-darwin-core.nix` `environment.systemPackages`, `home/mbp-darwin-home.nix` `home.packages`, etc.). The "prefer nix over homebrew" guidance stays as-is.
+   - **Adapting for a new Mac / new host, updated.** `README.md`'s "Adapting for your Mac" section currently says to rename one key in `flake.nix`. Under the new structure, adapting = adding a string to `os/darwin.nix` and creating a thin shell in `hosts/darwin/<role>/`. Rewrite that section.
 9. `make switch` on `mbp-primary` to validate.
 10. `make switch` on `mbp-2024` (before retirement, to confirm parity).
 
