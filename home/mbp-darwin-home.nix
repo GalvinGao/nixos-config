@@ -11,6 +11,7 @@
         ./terminal/zsh.nix
         ./terminal/starship.nix
         ./terminal/atuin.nix
+        ./terminal/git.nix
       ];
 
       home.username = "galvin";
@@ -105,8 +106,6 @@
         eza
         fastlane
         fnm
-        git
-        git-lfs
         gh # GitHub CLI
         go
         grafana
