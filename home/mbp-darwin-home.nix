@@ -29,8 +29,11 @@
         run ${pkgs.bash}/bin/bash -c 'export PATH="${pkgs.curl}/bin:/usr/bin:$PATH"; curl -fsSL https://claude.ai/install.sh | ${pkgs.bash}/bin/bash'
       '';
 
+      # Use pkgs.nodejs rather than fnm so activation doesn't depend on the
+      # user having a Node version installed yet. Install prefix is ~/.local,
+      # which is already on PATH via zsh config.
       home.activation.installCodexCli = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        run ${pkgs.bash}/bin/bash -c 'eval "$(${pkgs.fnm}/bin/fnm env --shell bash)"; npm i -g @openai/codex'
+        run ${pkgs.bash}/bin/bash -c 'export PATH="${pkgs.nodejs}/bin:$PATH"; export npm_config_prefix="$HOME/.local"; npm i -g @openai/codex'
       '';
 
       # Homebrew postgresql@N data dirs are per-version; assign each a unique port (543NN).
