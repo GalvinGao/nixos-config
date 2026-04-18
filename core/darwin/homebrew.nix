@@ -155,6 +155,7 @@
       "claude" # Anthropic's official Claude desktop app
       "lm-studio" # Local LLM runner
       "ollama-app" # Local LLM runtime
+      "superset" # Terminal for orchestrating agents
       "typeless" # AI voice dictation
 
       # Education & Publishing
