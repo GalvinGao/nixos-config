@@ -34,14 +34,14 @@
       "nats-server"
 
       "cocoapods"
-      "ampli"
+      "amplitude/ampli/ampli"
 
       "baidupcs-go"
       "cameroncooke/axe/axe"
 
       # Kubernetes & Container Tools
-      "kubectl-argo-rollouts"
-      "argocd"
+      "argoproj/tap/kubectl-argo-rollouts"
+      "argoproj/tap/argocd"
 
       "tw93/tap/mole"
       "nx"
@@ -80,7 +80,6 @@
 
       # Web Browsers & Development
       # Web browsers and development tools
-      "arc" # Browser with workspaces and spaces
       "chromium" # Open source browser
       "firefox" # Mozilla web browser
       "google-chrome" # Chrome stable
@@ -109,6 +108,7 @@
       "raycast" # Productivity launcher
       "setapp" # Curated app subscription
       "snipaste" # Screenshot and annotation
+      "squirrel-app" # Rime input method
       "stats" # System monitor menubar app
       "suspicious-package" # Installer inspector
       "yubico-authenticator" # YubiKey OTP/OATH client
@@ -152,6 +152,7 @@
 
       # AI & LLM Tools
       "chatwise" # Multi-model AI chat client
+      "claude" # Anthropic's official Claude desktop app
       "lm-studio" # Local LLM runner
       "ollama-app" # Local LLM runtime
 
@@ -164,7 +165,6 @@
       "qlmarkdown" # Markdown files
       "qlstephen" # Plain text files
       "quicklook-video" # Video thumbnails and previews
-      "quicklook-json" # JSON files
       "quicklookase" # Adobe Swatch Exchange files
 
       # Development Fonts
