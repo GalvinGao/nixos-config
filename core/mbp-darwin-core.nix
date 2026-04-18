@@ -54,6 +54,8 @@
     NSGlobalDomain.KeyRepeat = 2;
     NSGlobalDomain.InitialKeyRepeat = 15;
     NSGlobalDomain.ApplePressAndHoldEnabled = false;
+    NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
 
     # Mission Control / Spaces — switch to space containing the activated app.
     NSGlobalDomain.AppleSpacesSwitchOnActivate = true;
