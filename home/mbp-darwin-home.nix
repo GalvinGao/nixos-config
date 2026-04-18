@@ -18,6 +18,7 @@
         ./terminal/gh.nix
         ./terminal/duckdb.nix
         ./terminal/gpg.nix
+        ./rime.nix
       ];
 
       home.username = "galvin";
