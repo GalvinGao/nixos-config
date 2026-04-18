@@ -1,22 +1,19 @@
 { ... }:
 
 {
+  programs.difftastic = {
+    enable = true;
+    git.enable = true;
+  };
+
   programs.git = {
     enable = true;
     lfs.enable = true;
-    difftastic.enable = true;
-
-    userName = "GalvinGao";
-    userEmail = "me@galvingao.com";
 
     signing = {
       key = "CC0670FEA462E81E9E22DA85B364A85BFAFCF71A";
       signByDefault = true;
-      gpgPath = "/usr/local/bin/gpg";
-    };
-
-    aliases = {
-      set-upstream = "!git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
+      signer = "/usr/local/bin/gpg";
     };
 
     # Written to ~/.config/git/ignore; git reads XDG path automatically.
@@ -50,7 +47,14 @@
       ".mcp.json"
     ];
 
-    extraConfig = {
+    settings = {
+      user.name = "GalvinGao";
+      user.email = "me@galvingao.com";
+
+      alias = {
+        set-upstream = "!git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
+      };
+
       core.autocrlf = "input";
       init.defaultBranch = "main";
       pull.rebase = true;
