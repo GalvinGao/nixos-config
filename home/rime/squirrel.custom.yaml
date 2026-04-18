@@ -38,8 +38,8 @@ patch:
       font_face: "PingFangSC"
       font_point: 17
       label_font_point: 13
-      corner_radius: 5
-      hilited_corner_radius: 4
+      corner_radius: 16
+      hilited_corner_radius: 15
       border_height: 4
       border_width: 0
       border_color_width: 0
