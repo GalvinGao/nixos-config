@@ -16,8 +16,10 @@
     terminal-notifier
   ];
 
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  # Determinate Nix manages the Nix installation on this host, so nix-darwin
+  # must not touch it. This makes nix.* settings (gc, optimise, experimental
+  # features, etc.) unavailable — configure them via Determinate instead.
+  nix.enable = false;
 
   system.defaults = {
     # Dock
@@ -164,9 +166,4 @@
     home = "/Users/galvin";
   };
 
-  nix.gc.automatic = true;
-  nix.gc.interval.Hour = 3;
-  nix.gc.options = "--delete-older-than 15d";
-  nix.optimise.automatic = true;
-  nix.optimise.interval.Hour = 4;
 }
