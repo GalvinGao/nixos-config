@@ -162,11 +162,13 @@
         git clone "$@" "git@''${host}:''${org}/''${repo}.git" "$dest"
       }
 
-      # clone-org <org> [--max-size-mb N]
+      # clone-org <org> [--max-size-mb N] [--parallel N]
       # Pulls the 300 most recently updated repos in <org> via `gh`, skips any
-      # larger than the limit (default 300 MB), and clones the rest with `clone`.
+      # larger than the limit (default 300 MB), and clones the rest with `clone`
+      # (default 8 in parallel).
       function clone-org() {
         local max_size_mb=300
+        local parallel=8
         local org=""
         while [ $# -gt 0 ]; do
           case "$1" in
@@ -178,8 +180,16 @@
               max_size_mb="''${1#*=}"
               shift
               ;;
+            -p|--parallel)
+              parallel="$2"
+              shift 2
+              ;;
+            --parallel=*)
+              parallel="''${1#*=}"
+              shift
+              ;;
             -h|--help)
-              echo "Usage: clone-org <org> [--max-size-mb N]"
+              echo "Usage: clone-org <org> [--max-size-mb N] [--parallel N]"
               return 0
               ;;
             -*)
@@ -199,11 +209,12 @@
         done
 
         if [ -z "$org" ]; then
-          echo "Usage: clone-org <org> [--max-size-mb N]" >&2
+          echo "Usage: clone-org <org> [--max-size-mb N] [--parallel N]" >&2
           return 1
         fi
 
         local max_kb=$(( max_size_mb * 1024 ))
+        local running=0
         local name_with_owner disk_kb mb
 
         while IFS=$'\t' read -r name_with_owner disk_kb; do
@@ -213,9 +224,16 @@
             continue
           fi
           echo "[clone] $name_with_owner (''${disk_kb}KB)"
-          clone "git@github.com:''${name_with_owner}.git"
+          clone "git@github.com:''${name_with_owner}.git" &
+          running=$(( running + 1 ))
+          if (( running >= parallel )); then
+            wait -n
+            running=$(( running - 1 ))
+          fi
         done < <(gh repo list "$org" --limit 300 --json nameWithOwner,diskUsage \
                  | jq -r '.[] | "\(.nameWithOwner)\t\(.diskUsage)"')
+
+        wait
       }
 
       # fnm
