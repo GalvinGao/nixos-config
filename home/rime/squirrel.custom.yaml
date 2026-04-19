@@ -3,6 +3,8 @@ patch:
   style/color_scheme_dark: macos_dark
   style/text_orientation: horizontal
   style/candidate_list_layout: linear
+  style/corner_radius: 16
+  style/hilited_corner_radius: 15
 
   text_orientation: horizontal
   translucency: true
