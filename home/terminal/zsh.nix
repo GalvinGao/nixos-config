@@ -111,6 +111,49 @@
         git remote set-url origin git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')
       }
 
+      # clone <git-url> [extra git-clone flags]
+      # Parses the URL, rejects hosts other than github.com / gitlab.com,
+      # and clones via SSH into ~/Projects/<org>/<repo>.
+      function clone() {
+        if [ $# -lt 1 ]; then
+          echo "Usage: clone <git-url> [git-clone-flags...]" >&2
+          return 1
+        fi
+
+        local url="$1"
+        shift
+        url="''${url%.git}"
+        url="''${url%/}"
+
+        local host path
+        if [[ "$url" =~ '^(https?://|git@)?([^:/]+)[:/](.+)$' ]]; then
+          host="''${match[2]}"
+          path="''${match[3]}"
+        else
+          echo "clone: unrecognized URL: $url" >&2
+          return 1
+        fi
+
+        case "$host" in
+          github.com|gitlab.com) ;;
+          *)
+            echo "clone: unsupported host '$host' (only github.com and gitlab.com)" >&2
+            return 1
+            ;;
+        esac
+
+        local org="''${path%%/*}"
+        local repo="''${path#*/}"
+        if [ "$org" = "$path" ] || [ -z "$repo" ]; then
+          echo "clone: URL must include both organization and repository: $url" >&2
+          return 1
+        fi
+
+        local dest="$HOME/Projects/$org/$repo"
+        mkdir -p "$(dirname "$dest")"
+        git clone "$@" "git@''${host}:''${org}/''${repo}.git" "$dest"
+      }
+
       # fnm
       eval "$(fnm env --use-on-cd --shell zsh --version-file-strategy=recursive --corepack-enabled)"
 
