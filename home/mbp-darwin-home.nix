@@ -15,7 +15,6 @@
         ./terminal/atuin.nix
         ./terminal/git.nix
         ./terminal/htop.nix
-        ./terminal/gh.nix
         ./terminal/duckdb.nix
         ./terminal/gpg.nix
         ./rime.nix
