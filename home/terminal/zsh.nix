@@ -125,10 +125,12 @@
         url="''${url%.git}"
         url="''${url%/}"
 
-        local host path
+        # NB: can't name this local `path` — zsh ties it to $PATH and would
+        # blank out command lookup inside this function.
+        local host repo_path
         if [[ "$url" =~ '^(https?://|git@)?([^:/]+)[:/](.+)$' ]]; then
           host="''${match[2]}"
-          path="''${match[3]}"
+          repo_path="''${match[3]}"
         else
           echo "clone: unrecognized URL: $url" >&2
           return 1
@@ -142,9 +144,9 @@
             ;;
         esac
 
-        local org="''${path%%/*}"
-        local repo="''${path#*/}"
-        if [ "$org" = "$path" ] || [ -z "$repo" ]; then
+        local org="''${repo_path%%/*}"
+        local repo="''${repo_path#*/}"
+        if [ "$org" = "$repo_path" ] || [ -z "$repo" ]; then
           echo "clone: URL must include both organization and repository: $url" >&2
           return 1
         fi
