@@ -155,9 +155,65 @@
           troph-team troph
         )
         local local_org="''${org_aliases[$org]:-$org}"
-        local dest="$HOME/Projects/$local_org/$repo"
+        local dest="$HOME/repo/$local_org/$repo"
         mkdir -p "$(dirname "$dest")"
         git clone "$@" "git@''${host}:''${org}/''${repo}.git" "$dest"
+      }
+
+      # clone-org <org> [--max-size-mb N]
+      # Pulls the 300 most recently updated repos in <org> via `gh`, skips any
+      # larger than the limit (default 300 MB), and clones the rest with `clone`.
+      function clone-org() {
+        local max_size_mb=300
+        local org=""
+        while [ $# -gt 0 ]; do
+          case "$1" in
+            -m|--max-size-mb)
+              max_size_mb="$2"
+              shift 2
+              ;;
+            --max-size-mb=*)
+              max_size_mb="''${1#*=}"
+              shift
+              ;;
+            -h|--help)
+              echo "Usage: clone-org <org> [--max-size-mb N]"
+              return 0
+              ;;
+            -*)
+              echo "clone-org: unknown flag: $1" >&2
+              return 1
+              ;;
+            *)
+              if [ -z "$org" ]; then
+                org="$1"
+              else
+                echo "clone-org: unexpected positional arg: $1" >&2
+                return 1
+              fi
+              shift
+              ;;
+          esac
+        done
+
+        if [ -z "$org" ]; then
+          echo "Usage: clone-org <org> [--max-size-mb N]" >&2
+          return 1
+        fi
+
+        local max_kb=$(( max_size_mb * 1024 ))
+        local name_with_owner disk_kb mb
+
+        while IFS=$'\t' read -r name_with_owner disk_kb; do
+          if [ "$disk_kb" -gt "$max_kb" ]; then
+            mb=$(( disk_kb / 1024 ))
+            echo "[skip] $name_with_owner: ''${mb}MB exceeds ''${max_size_mb}MB limit"
+            continue
+          fi
+          echo "[clone] $name_with_owner (''${disk_kb}KB)"
+          clone "git@github.com:''${name_with_owner}.git"
+        done < <(gh repo list "$org" --limit 300 --json nameWithOwner,diskUsage \
+                 | jq -r '.[] | "\(.nameWithOwner)\t\(.diskUsage)"')
       }
 
       # fnm
