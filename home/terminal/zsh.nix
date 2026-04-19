@@ -151,10 +151,10 @@
 
         # Rewrite org for the local filesystem path; remote URL still uses
         # the real org name.
-        local -A org_aliases=(
-          troph-team troph
-        )
-        local local_org="''${org_aliases[$org]:-$org}"
+        local local_org="$org"
+        case "$org" in
+          troph-team) local_org=troph ;;
+        esac
         local dest="$HOME/repo/$local_org/$repo"
         mkdir -p "$(dirname "$dest")"
         git clone "$@" "git@''${host}:''${org}/''${repo}.git" "$dest"
