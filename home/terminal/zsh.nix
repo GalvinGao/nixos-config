@@ -149,7 +149,13 @@
           return 1
         fi
 
-        local dest="$HOME/Projects/$org/$repo"
+        # Rewrite org for the local filesystem path; remote URL still uses
+        # the real org name.
+        local -A org_aliases=(
+          troph-team troph
+        )
+        local local_org="''${org_aliases[$org]:-$org}"
+        local dest="$HOME/Projects/$local_org/$repo"
         mkdir -p "$(dirname "$dest")"
         git clone "$@" "git@''${host}:''${org}/''${repo}.git" "$dest"
       }
