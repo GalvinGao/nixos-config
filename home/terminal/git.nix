@@ -60,6 +60,8 @@
       pull.rebase = true;
       push.default = "current";
       rebase.autostash = true;
+      rerere.enabled = true;
+      remote.pushDefault = "origin";
       http.cookiefile = "/Users/galvin/.gitcookies";
       gc.reflogExpire = 360;
       protocol.version = 2;
