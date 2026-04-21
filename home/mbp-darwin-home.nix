@@ -17,6 +17,7 @@
         ./terminal/htop.nix
         ./terminal/duckdb.nix
         ./terminal/gpg.nix
+        ./terminal/npmrc.nix
         ./rime.nix
       ];
 

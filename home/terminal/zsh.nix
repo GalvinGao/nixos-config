@@ -44,6 +44,9 @@
       BUN_INSTALL = "$HOME/.bun";
       DOTNET_ROOT = "/opt/homebrew/opt/dotnet@9/libexec";
       PKG_CONFIG_PATH = "/opt/homebrew/Cellar/vips/8.16.0/lib/pkgconfig:$PKG_CONFIG_PATH";
+      # GitHub Packages token for @troph-team. Seeded from 1Password into login
+      # keychain: `security add-generic-password -U -a $USER -s npm-github-token -w "$(op read op://Personal/...)"`
+      NPM_GITHUB_TOKEN = "$(security find-generic-password -a $USER -s npm-github-token -w 2>/dev/null)";
     };
 
     # Aliases
@@ -157,7 +160,7 @@
         case "$org" in
           troph-team) local_org=troph ;;
         esac
-        local dest="$HOME/repo/$local_org/$repo"
+        local dest="$HOME/repos/$local_org/$repo"
         mkdir -p "$(dirname "$dest")"
         git clone "$@" "git@''${host}:''${org}/''${repo}.git" "$dest"
       }
