@@ -23,6 +23,7 @@
       # Network & Infrastructure (Homebrew-only)
       "siderolabs/tap/talosctl"
       "qshell"
+      "nali" # IP geo / CDN provider lookup
 
       # Databases (keep in Homebrew — brew services for daemon management)
       "redis"
