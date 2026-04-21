@@ -91,6 +91,7 @@
       # System & Security Tools
       # System utilities, security, and productivity enhancements
       "1password" # Password manager
+      "1password-cli" # 1Password command-line interface
       "appcleaner" # Thorough app uninstaller
       "apparency" # App security inspector
       "coconutbattery" # Battery health monitor
