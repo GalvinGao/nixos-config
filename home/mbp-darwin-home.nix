@@ -130,6 +130,7 @@
         k6
         jmeter
         kubectl
+        k9s
         mtr
         ouch
         pandoc
