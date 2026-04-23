@@ -119,6 +119,7 @@
         fnm
         gh # GitHub CLI
         go
+        golangci-lint
         grafana
         grpcurl
         hashcat
