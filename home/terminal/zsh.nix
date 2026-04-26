@@ -272,6 +272,7 @@
         mkdir -p "$dest"
         git -C "$dest" init -b main
         git -C "$dest" remote add origin "git@github.com:$org/$repo.git"
+        cd "$dest"
       }
 
       # fnm
