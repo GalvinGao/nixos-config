@@ -45,6 +45,10 @@
       ".superset/config.json"
       ".claude/settings.local.json"
       ".mcp.json"
+
+      # Agent / tool scratch dirs
+      ".playwright-mcp/"
+      ".superpowers/"
     ];
 
     settings = {
