@@ -242,10 +242,10 @@
       # createrepo <org>/<repo>
       # Creates a PRIVATE GitHub repo via `gh`, initializes a matching local
       # repo at ~/repos/<org>/<repo> (with troph-team → troph rewrite for the
-      # local path), and wires up the SSH remote.
+      # local path), wires up the SSH remote, and cds into the new repo.
       function createrepo() {
         if [ $# -ne 1 ]; then
-          echo "Usage: createrepo <org>/<repo>" >&2
+          print -P "%F{red}createrepo:%f usage: createrepo <org>/<repo>" >&2
           return 1
         fi
 
@@ -253,7 +253,7 @@
         local org="''${arg%%/*}"
         local repo="''${arg#*/}"
         if [ -z "$org" ] || [ -z "$repo" ] || [ "$org" = "$arg" ] || [[ "$repo" == */* ]]; then
-          echo "createrepo: argument must be exactly <org>/<repo>: $arg" >&2
+          print -P "%F{red}createrepo:%f argument must be exactly <org>/<repo>: %F{yellow}$arg%f" >&2
           return 1
         fi
 
@@ -264,15 +264,19 @@
         local dest="$HOME/repos/$local_org/$repo"
 
         if [ -e "$dest" ]; then
-          echo "createrepo: $dest already exists" >&2
+          print -P "%F{red}createrepo:%f %F{blue}$dest%f already exists" >&2
           return 1
         fi
 
+        print -P "%F{cyan}==>%f Creating %Bprivate%b GitHub repo %F{magenta}$org/$repo%f"
         gh repo create "$org/$repo" --private || return 1
+        print -P "%F{cyan}==>%f Initializing local repo at %F{blue}$dest%f"
         mkdir -p "$dest"
         git -C "$dest" init -b main
+        print -P "%F{cyan}==>%f Adding origin %F{magenta}git@github.com:$org/$repo.git%f"
         git -C "$dest" remote add origin "git@github.com:$org/$repo.git"
         cd "$dest"
+        print -P "%F{green}==>%f Ready at %F{blue}$dest%f"
       }
 
       # fnm
