@@ -239,6 +239,41 @@
         wait
       }
 
+      # createrepo <org>/<repo>
+      # Creates a PRIVATE GitHub repo via `gh`, initializes a matching local
+      # repo at ~/repos/<org>/<repo> (with troph-team → troph rewrite for the
+      # local path), and wires up the SSH remote.
+      function createrepo() {
+        if [ $# -ne 1 ]; then
+          echo "Usage: createrepo <org>/<repo>" >&2
+          return 1
+        fi
+
+        local arg="$1"
+        local org="''${arg%%/*}"
+        local repo="''${arg#*/}"
+        if [ -z "$org" ] || [ -z "$repo" ] || [ "$org" = "$arg" ] || [[ "$repo" == */* ]]; then
+          echo "createrepo: argument must be exactly <org>/<repo>: $arg" >&2
+          return 1
+        fi
+
+        local local_org="$org"
+        case "$org" in
+          troph-team) local_org=troph ;;
+        esac
+        local dest="$HOME/repos/$local_org/$repo"
+
+        if [ -e "$dest" ]; then
+          echo "createrepo: $dest already exists" >&2
+          return 1
+        fi
+
+        gh repo create "$org/$repo" --private || return 1
+        mkdir -p "$dest"
+        git -C "$dest" init -b main
+        git -C "$dest" remote add origin "git@github.com:$org/$repo.git"
+      }
+
       # fnm
       eval "$(fnm env --use-on-cd --shell zsh --version-file-strategy=recursive --corepack-enabled)"
 
