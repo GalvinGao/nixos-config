@@ -118,7 +118,7 @@
         fastlane
         fnm
         gh # GitHub CLI
-        cargo
+        rustup
         go
         golangci-lint
         grafana
