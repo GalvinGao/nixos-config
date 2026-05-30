@@ -40,6 +40,6 @@
     "/System/Applications/iPhone Mirroring.app"
   ];
   system.defaults.dock.persistent-others = [
-    "/Users/galvin/Downloads"
+    { folder = { path = "/Users/galvin/Downloads"; arrangement = "date-modified"; }; }
   ];
 }
