@@ -1,15 +1,40 @@
 patch:
-  'punctuator/half_shape/+':
-    '/': { commit: 、 }
-    "\\": { commit: 、 }
-    '|': { commit: · }
-    '~': { commit: '~' }
-    '%': { commit: '%' }
-    '$': { commit: ￥ }
-    '*': { commit: '*' }
-    '<': { commit: 《 }
-    '>': { commit: 》 }
-    '[': { commit: 「 }
-    ']': { commit: 」 }
-    '{': { commit: 『 }
-    '}': { commit: 』 }
+  # Replace the entire half_shape map so punctuation commits a single
+  # sensible character rather than popping a candidate menu. Upstream
+  # rime-ice ships several keys (e.g. /, \, [, |, ~, %, $, *, <, >) as
+  # lists, which triggers the popup. Using '+' to merge individual
+  # { commit: X } maps into those list values fails with
+  # "incompatible node type", so we override the whole map instead.
+  punctuator/half_shape:
+    "!": { commit: "！" }
+    '"': { pair: [ "“", "”" ] }
+    "#": "#"
+    "$": "￥"
+    "%": "%"
+    "&": "&"
+    "'": { pair: [ "‘", "’" ] }
+    "(": "（"
+    ")": "）"
+    "*": "*"
+    "+": "+"
+    ",": { commit: "，" }
+    "-": "-"
+    ".": { commit: "。" }
+    "/": "、"
+    ":": { commit: "：" }
+    ";": { commit: "；" }
+    "<": "《"
+    "=": "="
+    ">": "》"
+    "?": { commit: "？" }
+    "@": "@"
+    "[": "「"
+    "\\": "、"
+    "]": "」"
+    "^": { commit: "……" }
+    "_": "——"
+    "`": "`"
+    "{": "『"
+    "|": "·"
+    "}": "』"
+    "~": "~"
