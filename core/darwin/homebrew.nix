@@ -94,6 +94,7 @@
       "1password" # Password manager
       "1password-cli" # 1Password command-line interface
       "appcleaner" # Thorough app uninstaller
+      "balenaetcher" # USB/SD card image flasher
       "apparency" # App security inspector
       "coconutbattery" # Battery health monitor
       "dockdoor" # Dock window previews and switcher
