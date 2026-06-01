@@ -17,6 +17,7 @@
   system.defaults.dock.persistent-apps = [
     "/Applications/Claude.app"
     "/Applications/Google Chrome.app"
+    "/Applications/Codex.app"
     "/System/Applications/Calendar.app"
     "/Applications/Setapp/Spark Mail.app"
     "/System/Applications/Music.app"
@@ -33,9 +34,7 @@
     "/Applications/Lens.app"
     "/Applications/Transmit.app"
     "/Applications/Setapp/TablePlus.app"
-    "/Applications/Superset.app"
     "/Applications/Visual Studio Code.app"
-    "/Applications/Android Studio.app"
     "/Applications/Xcode-26.4.1.app"
     "/System/Applications/iPhone Mirroring.app"
   ];
