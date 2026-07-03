@@ -26,15 +26,17 @@
       home.stateVersion = "25.05";
 
       # Homebrew postgresql@N data dirs are per-version; assign each a unique port (543NN).
-      home.activation.configurePostgresPorts = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        for v in 14 16 17 18; do
-          conf="/opt/homebrew/var/postgresql@$v/postgresql.conf"
-          want="543$v"
-          if [ -f "$conf" ] && ! ${pkgs.gnugrep}/bin/grep -qE "^port = $want([[:space:]]|$)" "$conf"; then
-            run ${pkgs.gnused}/bin/sed -i -E "s/^#?[[:space:]]*port[[:space:]]*=[[:space:]]*[0-9]+/port = $want/" "$conf"
-          fi
-        done
-      '';
+      home.activation.configurePostgresPorts =
+        inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ]
+          ''
+            for v in 14 16 17 18; do
+              conf="/opt/homebrew/var/postgresql@$v/postgresql.conf"
+              want="543$v"
+              if [ -f "$conf" ] && ! ${pkgs.gnugrep}/bin/grep -qE "^port = $want([[:space:]]|$)" "$conf"; then
+                run ${pkgs.gnused}/bin/sed -i -E "s/^#?[[:space:]]*port[[:space:]]*=[[:space:]]*[0-9]+/port = $want/" "$conf"
+              fi
+            done
+          '';
 
       programs.home-manager.enable = true;
       programs.fzf = {
@@ -161,14 +163,12 @@
         # Identified from shell history (not previously declared)
         neovim
         mosh
-        natscli # NATS CLI client (nats-server is in homebrew)
         wrk # HTTP benchmarking
         flyctl # Fly.io CLI
         binwalk
 
         # Migrated from Homebrew brews
         nmap
-        kubernetes-helm # brew: helm (nix `helm` is a music synthesizer)
         kubectx
         kubeseal
         zellij
@@ -181,7 +181,6 @@
         swiftformat
         wakatime-cli
         vgmstream
-        opencode
         prek
       ];
     };

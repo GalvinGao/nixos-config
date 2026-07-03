@@ -68,7 +68,6 @@
       "hoppscotch" # API development ecosystem
       "iterm2" # Terminal replacement
       "lens" # Kubernetes management IDE
-      "opencode-desktop" # Open-source AI coding agent (desktop)
       "orbstack" # Fast Docker & Linux on macOS
       "postman" # API platform for building and testing
       "redis-insight" # Redis GUI client
@@ -156,8 +155,6 @@
       # AI & LLM Tools
       "chatwise" # Multi-model AI chat client
       "claude" # Anthropic's official Claude desktop app
-      "lm-studio" # Local LLM runner
-      "ollama-app" # Local LLM runtime
       "superset" # Terminal for orchestrating agents
       "typeless" # AI voice dictation
 
