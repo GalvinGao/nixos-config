@@ -52,6 +52,7 @@
       "node@18" # required by ampli
 
       "dotnet@9"
+      "ripgrep"
     ];
 
     casks = [
