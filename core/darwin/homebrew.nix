@@ -9,14 +9,19 @@
       upgrade = true;
     };
 
+    # Homebrew 6.0 turned on HOMEBREW_REQUIRE_TAP_TRUST by default: brew bundle
+    # now evaluates every formula/cask in each non-official tap and refuses to
+    # load untrusted ones, aborting activation. `trusted = true` emits
+    # `tap "…", trusted: true`, vouching for the whole tap. All below are the
+    # legit publishers of tools we declare (verified owner + GitHub remote).
     taps = [
-      "amplitude/ampli"
-      "argoproj/tap"
-      "cameroncooke/axe"
-      "siderolabs/tap"
-      "tw93/tap" # for mole
-      "productdevbook/tap" # for portkiller
-      "steipete/tap" # for codexbar
+      { name = "amplitude/ampli"; trusted = true; } # Amplitude — ampli CLI
+      { name = "argoproj/tap"; trusted = true; } # Argo Project (CNCF) — argocd
+      { name = "cameroncooke/axe"; trusted = true; } # Cameron Cooke — axe
+      { name = "siderolabs/tap"; trusted = true; } # Sidero Labs — talosctl
+      { name = "tw93/tap"; trusted = true; } # tw93 — mole
+      { name = "productdevbook/tap"; trusted = true; } # productdevbook — portkiller
+      { name = "steipete/tap"; trusted = true; } # Peter Steinberger — codexbar
     ];
 
     brews = [
@@ -140,7 +145,9 @@
       "slack" # Team communication and collaboration
       "zoom" # Video conferencing
 
-      "lm-studio"
+      # Local LLM runtimes
+      "lm-studio" # Local LLM GUI + inference server
+      "ollama-app" # Ollama desktop app (menu-bar GUI + ollama CLI)
 
       # Media & Design Tools
       # Creative tools for media management and design
