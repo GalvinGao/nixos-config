@@ -140,6 +140,8 @@
       "slack" # Team communication and collaboration
       "zoom" # Video conferencing
 
+      "lm-studio"
+
       # Media & Design Tools
       # Creative tools for media management and design
       "figma" # Design and prototyping
