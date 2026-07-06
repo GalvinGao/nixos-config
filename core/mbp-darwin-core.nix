@@ -21,6 +21,14 @@
   # features, etc.) unavailable — configure them via Determinate instead.
   nix.enable = false;
 
+  # darwin-uninstaller evaluates a *fresh* darwin system (eval-config.nix with
+  # only nixpkgs.source) that never sees this host's nixpkgs.overlays, so the
+  # nixos-render-docs wrapper below can't reach its nested manual build — it
+  # keeps hitting the removed --toc-depth flag. Disable the (rarely used)
+  # uninstaller tool so that nested system is never built. Re-enable once
+  # upstream nix-darwin migrates to --sidebar-depth.
+  system.tools.darwin-uninstaller.enable = false;
+
   system.defaults = {
     # Dock
     dock.autohide = true;
@@ -158,6 +166,23 @@
         doCheck = false;
         doInstallCheck = false;
       });
+
+      # nix-darwin master (a1fa429, == HEAD) still passes `--toc-depth` and
+      # `--chunk-toc-depth` to nixos-render-docs when building darwin-manual-html,
+      # but nixpkgs-unstable removed both flags in favour of `--sidebar-depth`,
+      # breaking the build. Wrap the tool to translate the removed flags so the
+      # manual + manpages still build (a duplicate --sidebar-depth is harmless;
+      # last value wins). Drop this overlay once upstream nix-darwin migrates.
+      nixos-render-docs = prev.writeShellScriptBin "nixos-render-docs" ''
+        args=()
+        while [ "$#" -gt 0 ]; do
+          case "$1" in
+            --toc-depth | --chunk-toc-depth) args+=(--sidebar-depth "$2"); shift 2 ;;
+            *) args+=("$1"); shift ;;
+          esac
+        done
+        exec ${prev.nixos-render-docs}/bin/nixos-render-docs "''${args[@]}"
+      '';
     })
   ];
 
