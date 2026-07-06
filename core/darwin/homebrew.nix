@@ -16,7 +16,7 @@
     # legit publishers of tools we declare (verified owner + GitHub remote).
     taps = [
       { name = "amplitude/ampli"; trusted = true; } # Amplitude — ampli CLI
-      { name = "argoproj/tap"; trusted = true; } # Argo Project (CNCF) — argocd
+      { name = "argoproj/tap"; trusted = true; } # Argo Project (CNCF) — kubectl-argo-rollouts
       { name = "cameroncooke/axe"; trusted = true; } # Cameron Cooke — axe
       { name = "siderolabs/tap"; trusted = true; } # Sidero Labs — talosctl
       { name = "tw93/tap"; trusted = true; } # tw93 — mole
@@ -47,7 +47,7 @@
 
       # Kubernetes & Container Tools
       "argoproj/tap/kubectl-argo-rollouts"
-      "argoproj/tap/argocd"
+      "argocd" # moved to homebrew/core; formerly argoproj/tap/argocd
 
       "tw93/tap/mole"
       "nx"
