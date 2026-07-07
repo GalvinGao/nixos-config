@@ -57,6 +57,7 @@
 
       alias = {
         set-upstream = "!git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
+        claude-miku = "CLAUDE_CONFIG_DIR=~/.claude-miku claude";
       };
 
       core.autocrlf = "input";
